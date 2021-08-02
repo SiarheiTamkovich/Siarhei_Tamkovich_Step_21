@@ -18,7 +18,7 @@
 
 //let allprofit = +prompt(`Введите общую сумму выручки от продаж $:`);
 //alert(`Ваша зарплата в этом месяце составила 250$ + 10% от ${allprofit} = ${allprofit/10} Итого: ${allprofit/10+250}$`)
-
+/*
 let data = +prompt(`Введите целое число`);
 if (data === 0) {
     alert(`Вы ввели число равное нулю`)
@@ -27,3 +27,9 @@ if (data === 0) {
 } else if (data < 0) {
     alert(`Введенное число меньше нуля`)
 }
+
+*/
+
+let data = +prompt(`Введите целое число`);
+let data1 = data%10;
+alert((data1 == 0));
