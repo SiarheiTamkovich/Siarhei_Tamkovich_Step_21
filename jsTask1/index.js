@@ -28,8 +28,33 @@ if (data === 0) {
     alert(`Введенное число меньше нуля`)
 }
 
+
+let a = +prompt(`Введите целое число`);
+alert(a % 2 && `нечет`||`чет`);
+
+
+let a = +prompt(`введите первое число`);
+let b = +prompt(`введите второе число`);
+let z = prompt(`введите арифметический знак`)
+
+switch (z) {
+    case `+`:
+        alert(`${a+b}`)
+    break;
+    case `-`:
+        alert(`${a-b}`)
+    break;
+    case `/`:
+        alert(`${a/b}`)
+    break;
+    case `*`:
+        alert(`${a*b}`)
+    break
+}
+
 */
 
-let data = +prompt(`Введите целое число`);
-let data1 = data%10;
-alert((data1 == 0));
+let a = +prompt(`Введите первое число`);
+let b = +prompt(`Введите второе число`);
+let final = (a>b ? a: b);
+alert(`большее число=${final}`);
