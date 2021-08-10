@@ -9,7 +9,7 @@ while (i <= count) {
     i++
 }
 
-/* --Task № 2 chisla ot 0 do ...  --*
+/* --Task № 2 chisla ot 0 do ...  --
 
 let count = +prompt(`Введите число`);
 let i = 0;
@@ -135,7 +135,12 @@ let eve = 0; // even
 let odd = 0; // odd
 while (i) { 
     let a = +prompt(`Enter the number`);
-    if (a>0) {
+    a > 0 ? pos++ : pos;
+    a < 0 ? neg++ : neg;    
+    a == 0 ? zer++ : zer;
+    a%2 == 0 ? eve++ : eve;
+    
+/* if (a>0) {           // with IF
         pos = pos + 1;
     } 
     if (a<0) {
@@ -148,7 +153,7 @@ while (i) {
         eve = eve + 1;
     } else {
         odd = odd + 1;
-    }
+    }  
     i--;
 }
 
@@ -206,7 +211,7 @@ while (ii<=8) {
     ii++;
 }
 
-/* --Task № 10 guess the number game--*/
+/* --Task № 10 guess the number game--
 
 let a1 = 0; // start
 let a2 = 200; // stop
@@ -240,3 +245,6 @@ while (i) {
     }
     i++;
 }
+
+/* --Task № guess the number game--*/
+
