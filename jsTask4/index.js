@@ -54,7 +54,7 @@ for(let i= 1; i<= b; i++) {
     document.write(` ${a}`)
 }
 
-/* --Task № 5  prostoe chislo --*/
+/* --Task № 5  prostoe chislo --
 
 let a = +prompt(`Введите минимальное число `);
 var del = 0;
@@ -66,8 +66,42 @@ for(let i= 2; i< a; i++) {
         flag = false;
     } 
 }
-flag ? document.write(`<br> Итог: ${a} простое число`): document.write(`<br> Итог: ${a} не простое число`);
+flag ? document.write(`<br> Итог: ${a} простое число`): 
+document.write(`<br> Итог: ${a} не простое число`);
+
+//---------------------------Homework --------------------------------------------------------------
    
+/* --Task № 1  function check Number  --
+
+function checkNumber(a, b) {
+    var r = 0;
+    a < b ? r-- : r++;
+    a === b ? r = 0 : 0;
+    return r;
+}
+let a = 4;
+let b = 5;
+alert(checkNumber(a, b));
+
+/* --Task №  2 function factorial  --
+
+function factorial(n){
+    var r = 1;
+    while(n){
+        r *= n--;
+    }
+    return r;
+}
+let n = +prompt(`Enter the number `);
+alert(factorial(n));
+
+/* --Task № 3 collect the number  --*/
+
+
+    
+
+
+
 
 
     
