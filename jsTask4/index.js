@@ -152,8 +152,12 @@ let min = +prompt(`Enter min number`);
 let max = +prompt(`Enter max number`);
 perfectNumber(min, max);
 
-/* --Task № 7   --*/
+/* --Task № 7 time  --*/
 
+function timeToStr(h, m, c){
+    document.write(`${h}:${m}:${c})
+}
+let h = 
 
 
 
