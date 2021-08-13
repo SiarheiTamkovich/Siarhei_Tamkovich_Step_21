@@ -99,7 +99,7 @@ function chetNechet(start, end, bool){
 }
 chetNechet(2, 9, true);
 
-/* --Task № 10 nextDate --*/
+/* --Task № 10 nextDate --
 
 function visYar(day, mon, yar) {
     if ((mon == 2) && (yar%400 === 0 || yar%4 === 0 && yar%100 != 0)) { // високосный год
@@ -172,8 +172,121 @@ function nextDate (date){
 let date = prompt(`Введите дату в формате DD.MM.YYYY`);
 nextDate(date);
 
+//---------------------------Homework ---------------------------------
+   
+/* --Task № 1  function check Number  --
+
+function checkNumber(a, b) {
+    let r = 0;
+    a < b ? r-- : r++;
+    a === b ? r = 0 : 0;
+    return r;
+}
+let a = 4;
+let b = 5;
+alert(checkNumber(a, b));
+
+/* --Task №  2 function factorial  --
+
+function factorial(n){
+    var r = 1;
+    while(n){
+        r *= n--;
+    }
+    return r;
+}
+let n = +prompt(`Enter the number `);
+alert(factorial(n));
+
+/* --Task № 3 collect the number  --
+
+function collectNamber(a, b, c){
+     return String(a) + String(b) + String(c);
+}
+let a = 4;
+let b = 5;
+let c = 6;
+alert(collectNamber(a, b, c));
+
+/* --Task № 4 square area  --
+
+function areaSquare(a, b = 1){
+    return b !== 1 ? r = a * b : r = a * a;
+}
+let a = 4;
+let b = 5;
+//alert(areaSquare(a));
+alert(areaSquare(a, b));
+
+/* --Task № 5 perfect number  --
+
+function perfectNumber(a){
+    let r = 0;
+    for (var i = 1; i <= a/2; i++){
+ //       console.log(i);
+        a % i == 0 ? r += i : 0;
+    }
+    r == a ? alert(`Nomber is perfect`) : alert(`Nomber is imperfect`);
+}
+let a = +prompt(`Enter number`);
+perfectNumber(a);
+
+/* --Task № 6 all perfect number  --
+
+function perfectNumber(min, max){
+    for (min; min <= max; min++){
+        var r = 0;
+        for (var i = 1; i <= min/2; i++){
+            if (min % i == 0) { 
+                r = r + i;
+//                console.log(`min=${min} i=${i} r=${r}`);
+                r == min ? document.write(`${r} <br>`) : 0;
+            }       
+        }   
+    }
+}
+let min = +prompt(`Enter min number`);
+let max = +prompt(`Enter max number`);
+perfectNumber(min, max);
+
+/* --Task № 7 time  --
+
+function timeToStr(h, m = `00`, c = `00`){
+    document.write(`${h}:${m}:${c}`);
+}
+let h = `05`;
+//let h = `10`; let m = `43`; let c = `56`
+//timeToStr(h, m, c);
+timeToStr(h);
 
 
+/* --Task № 8 time into seconds--
+
+function timeToSec(h, m, c) {
+    return h * 3600 + m * 60 + c;
+}
+document.write(timeToSec(10, 43, 56));
+
+/* --Task № 9 seconds into time --
+
+function secToTime(c) {
+    return `${Math.floor(c / 3600)}:${Math.floor(c / 60) - Math.floor(c / 3600) * 60}:${c % 60}`
+}
+document.write(secToTime(100000));
+
+/* --Task № 10 difference between dates --*/
+
+function dateToSec(dd, mm, yyyy){ // kolichestvo secund s 01 yanvarya 1970 goda
+    return Math.floor(new Date(`${mm},${dd},${yyyy}`) / 1000);
+}
+function secToTime(sec) {
+    return `${Math.floor(sec / 3600)}:${Math.floor(sec / 60) - Math.floor(sec / 3600) * 60}:${sec % 60}`
+}
+let date1 = dateToSec(13, 08, 2021);
+let date2 = dateToSec(07, 02, 1971);
+let sec = Math.max(date1, date2) - Math.min(date1, date2);
+console.log(sec);
+document.write(secToTime(sec));
 
 
 

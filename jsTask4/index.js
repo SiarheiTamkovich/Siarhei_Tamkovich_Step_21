@@ -69,7 +69,7 @@ for(let i= 2; i< a; i++) {
 flag ? document.write(`<br> Итог: ${a} простое число`): 
 document.write(`<br> Итог: ${a} не простое число`);
 
-//---------------------------Homework --------------------------------------------------------------
+//---------------------------Homework ---------------------------------
    
 /* --Task № 1  function check Number  --
 
@@ -94,8 +94,6 @@ function factorial(n){
 }
 let n = +prompt(`Enter the number `);
 alert(factorial(n));
-
-/* ---------------------------Homework --------------------------------------
 
 /* --Task № 3 collect the number  --
 
@@ -157,32 +155,3 @@ perfectNumber(min, max);
 function timeToStr(h, m, c){
     document.write(`${h}:${m}:${c})
 }
-let h = 
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
