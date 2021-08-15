@@ -274,19 +274,41 @@ function secToTime(c) {
 }
 document.write(secToTime(100000));
 
-/* --Task № 10 difference between dates --*/
+/* --Task № 10 difference between date --
 
-function dateToSec(dd, mm, yyyy){ // kolichestvo secund s 01 yanvarya 1970 goda
-    return Math.floor(new Date(`${mm},${dd},${yyyy}`) / 1000);
+function timeToSec(h, m, c){ // chasov minut secund
+    return h * 3600 + m * 60 + c;;
 }
 function secToTime(sec) {
     return `${Math.floor(sec / 3600)}:${Math.floor(sec / 60) - Math.floor(sec / 3600) * 60}:${sec % 60}`
 }
-let date1 = dateToSec(13, 08, 2021);
-let date2 = dateToSec(07, 02, 1971);
-let sec = Math.max(date1, date2) - Math.min(date1, date2);
+let time1 = timeToSec(82, 34, 47);
+let time2 = timeToSec(12, 22, 05);
+let sec = Math.max(time1, time2) - Math.min(time1, time2);
 console.log(sec);
 document.write(secToTime(sec));
+
+/* --Task № 11  time after youre birthday --*/
+
+function dateToSec(dd, mm, yyyy){ 
+    return Math.floor(new Date(`${mm},${dd},${yyyy}`) / 1000);
+}
+function secToTime(diff) {
+    return `${Math.floor(diff / 31536000)} лет
+    ${Math.floor(diff / 86400) - Math.floor(diff / 31536000) * 365.25} дней
+    ${Math.floor(diff / 3600) - Math.floor(diff / 86400) * 24} часов 
+    ${Math.floor(diff / 60) - Math.floor(diff / 3600) * 60} минут
+    ${diff % 60} секунд`;
+}
+let datebirth = dateToSec(07, 02, 1971); // kolichestvo secund s 01 yanvarya 1970 goda
+let now = (Math.floor(new Date() / 1000)); 
+let diff = now - datebirth;
+//console.log(now);
+//console.log(datebirth);
+//console.log(diff);
+document.write(secToTime(diff));
+
+
 
 
 
