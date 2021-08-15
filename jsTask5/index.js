@@ -287,7 +287,7 @@ let sec = Math.max(time1, time2) - Math.min(time1, time2);
 console.log(sec);
 document.write(secToTime(sec));
 
-/* --Task № 11  time after youre birthday --*/
+/* --Task № 11  time after youre birthday --
 
 function dateToSec(dd, mm, yyyy){ 
     return Math.floor(new Date(`${mm},${dd},${yyyy}`) / 1000);
