@@ -273,9 +273,13 @@ function secToTime(c) {
     return `${Math.floor(c / 3600)}:${Math.floor(c / 60) - Math.floor(c / 3600) * 60}:${c % 60}`
 }
 document.write(secToTime(100000));
-
 /* --Task № 10 difference between date --
 
+<<<<<<< HEAD
+/* --Task № 10 difference between date --
+
+=======
+>>>>>>> 1162f25e3dd81da8a60a788cc43441323c7a30c2
 function timeToSec(h, m, c){ // chasov minut secund
     return h * 3600 + m * 60 + c;;
 }
@@ -307,8 +311,4 @@ let diff = now - datebirth;
 //console.log(datebirth);
 //console.log(diff);
 document.write(secToTime(diff));
-
-
-
-
 
