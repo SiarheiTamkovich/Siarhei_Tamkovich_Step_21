@@ -312,4 +312,3 @@ let diff = now - datebirth;
 //console.log(diff);
 document.write(secToTime(diff));
 
-test push
