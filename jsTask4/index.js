@@ -34,7 +34,7 @@ for(let i= 1; i<= 100; i++) {
 
 
 function factorial(n){
-    var result = 1;
+    let result = 1;
     while(n){
         result *= n--;
     }
