@@ -214,6 +214,18 @@ console.log(rectangle);
 
 //---------------------------Homework ---------------------------------
 
-
-
-
+/* --Task № 1 object automobile --*/
+let automobile= { 
+    prod: 5,
+    ay: 20,
+    bx: 40,
+    by: 5,
+}
+function echengeCord(a, px, py){
+    px >= a.ax && px <= a.bx &&
+    py >= a.by && py <= a.ay ? 
+    console.log(`point inside rectangle`) : 
+    console.log(`point outside rectangle`);
+}
+echengeCord(rectangle, 15, 10);
+console.log(rectangle);
