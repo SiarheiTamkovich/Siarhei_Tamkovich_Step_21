@@ -116,7 +116,7 @@ parchas2.purchased = `Yes`;
 console.log(parchas2.name, parchas2.purchased);
 printList();
 
-/* --Task № 2 cheque   --*/
+/* --Task № 2 cheque   --*
 
 let shopList = [{
          name: `Водка "Смирнов" 0.5 л.`,         
@@ -201,3 +201,133 @@ function aveCost(shList) {
     );
 }
 aveCost(shopList);
+
+/* --Task № 3 arr styles   --*
+let styleList = [{
+    name: `color`,         
+    value: `Red`,  
+}, {
+    name: `font-size`,         
+    value: `24px`,  
+}, {
+    name: `text-align`,         
+    value: `center`,  
+}, {
+    name: `text-decoration`,         
+    value: `underline`,
+}, {
+    name: `background-color`,         
+    value: `yellow`,
+}]
+
+function getTextStyle(style) {
+    let textColor = style.find(item => item.name == `color`);
+    let fontSize = style.find(item => item.name == `font-size`);
+    let textAlign = style.find(item => item.name == `text-align`);
+    let textDecor = style.find(item => item.name == `text-decoration`);
+    let backColor = style.find(item => item.name == `background-color`);
+    document.write(`<p style="
+         ${textColor.name}: ${textColor.value};
+         ${fontSize.name}: ${fontSize.value};
+         ${textAlign.name}: ${textAlign.value};
+         ${textDecor.name}: ${textDecor.value};
+         ${backColor.name}: ${backColor.value};
+        "> 
+        Применяем стили из массива с использованием функции </p>       
+    `);
+}
+getTextStyle(styleList);
+
+/* --Task № 4 arr rooms   --*/
+let roomList = [{
+    name: `Учебный класс № 101`,         
+    capacity: 40,  
+    faculty: `Менеджмента`,
+}, {
+    name: `Учебный класс № 102`,         
+    capacity: 60,  
+    faculty: `Менеджмента`,
+}, {
+    name: `Лекционный зал`,         
+    capacity: 100,  
+    faculty: `Экономический`,
+}, {
+    name: `Учебный класс № 201`,         
+    capacity: 40,  
+    faculty: `Экономический`,
+}, {
+    name: `Учебный класс № 202`,         
+    capacity: 60,  
+    faculty: `Экономический`,
+}, {
+    name: `Учебный класс № 301`,         
+    capacity: 80,  
+    faculty: `Теории развития Фронтенда`,
+}, {
+    name: `Учебный класс № 302`,         
+    capacity: 100,  
+    faculty: `Теории развития Фронтенда`,
+}, {
+    name: `Лекционный зал`,         
+    capacity: 200,  
+    faculty: `Теории развития Фронтенда`,
+}, {
+    name: `Компьютерный класс`,         
+    capacity: 50,  
+    faculty: `Теории развития Фронтенда`,
+}]
+
+// p.1 print list all rooms
+function printList(rooms) { // Print all
+    document.write(`<h3> Список всех аудиторий: </h3>`)
+    rooms.forEach(list => {
+    document.write(` 
+        ${list.name}, вместимость:
+        ${list.capacity} мест, факультет:
+        ${list.faculty} <br>
+    `);
+    })
+}
+printList(roomList);
+
+// p.2 print list faculty rooms
+function printListF(rooms, faculty) { // Print for filtr
+    document.write(`<h3> Список аудиторий ${faculty} факультета: </h3>`)
+    rooms.forEach(list => {
+    list.faculty === faculty ?
+    document.write(`
+        ${list.name}, вместимость:
+        ${list.capacity} мест <br>
+    `) : 0;
+    })
+}
+printListF(roomList, `Экономический`);
+
+// p.3 selection rooms
+let groupStudents = {
+    name: `ЭК-1`,
+    students: 50,
+    faculty: `Экономический`,
+}
+function printRooms(rooms, group) { // Print for filtr
+    document.write(`<h3> Список аудиторий для группы ${group.name} = ${group.students} чел.: </h3>`)
+    rooms.filter(list => {
+    (list.faculty === group.faculty) && (list.capacity > group.students) ?
+    document.write(`
+        ${list.name}, вместимость:
+        ${list.capacity} мест <br>
+    `) : 0;
+    })
+}
+printRooms(roomList, groupStudents);
+
+// p.4 sort by capacity
+let sortByCap = (a, b) => a.capacity > b.capacity ? 1 : -1;
+roomList.sort(sortByCap);
+printList(roomList);
+
+// p.5 sort by name
+let sortByName = (a, b) => a.name > b.name ? 1 : -1;
+roomList.sort(sortByName);
+printList(roomList);
+
