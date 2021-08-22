@@ -80,7 +80,7 @@ concatArr(arr1, arr2);
 
 //---------------------------Homework ---------------------------------
 
-/* --Task № 1 shopping list   --*/
+/* --Task № 1 shopping list   --*
 let shopList = [
     {name: `Vodka`, quantity: 5,  unit: `bottle`, purchased: `Yes`},
     {name: `Wine`,  quantity: 10, unit: `bottle`, purchased: `Yes`},
@@ -113,9 +113,91 @@ printList();
 // p.3 - parchase bread 
 let parchas2 = shopList.find(product => product.name == `Bread`);
 parchas2.purchased = `Yes`;
-console.log(parchas.name, parchas.quantity);
+console.log(parchas2.name, parchas2.purchased);
 printList();
 
+/* --Task № 2 cheque   --*/
 
+let shopList = [{
+         name: `Водка "Смирнов" 0.5 л.`,         
+         quan: 2,  
+         unit: `бут.`, 
+         price: 8.75,
+    }, {
+        name: `Вино Массандра" 0.75, Крым`,     
+        quan: 4,  
+        unit: `бут.`, 
+        price: 13.25,
+    }, {
+        name: `Пиво "Оболонь" 0.5 л. Украина`,  
+        quan: 8,  
+        unit: `банка`, 
+        price: 2.25,
+    }, {
+        name: `Хлеб Ситный нарезной`,
+        quan: 0.35,
+        unit: `кг.`,
+        price: 1.25,
+    }, {
+        name: `Стакан пластик`,
+        quan: 5, 
+        unit: `шт.`,
+        price: 0.75,
+    }, {
+        name: `Грудинка "Вясковая"`,
+        quan: 1.65,
+        unit: `кг.`,
+        price: 13.45,
+    },
+]
 
+// p.1-2 print cheque
+console.log(shopList);
+function printCheque(shList) { // Print cheque
+    document.write(`<h3> Платежный документ чек продажи: </h3>`)
+    let Itog = 0;
+    shList.forEach(list => {
+        document.write(`
+         ${list.name}, 
+         ${list.unit} :
+         ${list.quan} Х
+         ${list.price} = 
+         ${(list.quan * list.price).toFixed(2)} <br>
+        `);
+        Itog += list.quan * list.price;
+    })
+    document.write(`<hr> ИТОГ: ${Itog} руб. <br>`) // Print Itog
+}
+printCheque(shopList);
 
+// p.3 most expensive purchase
+function expPuch(shList) { // fined expensive purchase
+    let Exp = 0;
+    let ExpName = 0;
+    shList.forEach(list => {
+        if (list.quan * list.price > Exp) {
+            Exp = list.quan * list.price; 
+            return ExpName = list.name;
+        }
+    })
+    document.write(`<br> Самая дорогая покупка: <br> </h4>
+                ${ExpName} -
+                ${Exp} руб. <br>`);
+}
+expPuch(shopList);
+
+// p.4 most average cost
+function aveCost(shList) { 
+    document.write(`<br> Средняя стоимость единицы товара: `)
+    let Sum = 0;
+    let kol = 0;
+    shList.forEach(list => {
+        Sum += list.quan * list.price;
+        kol += list.quan;
+    });
+    document.write(`<br>
+        ${Sum} руб. / ${kol} =
+        ${(Sum / kol).toFixed(2)} руб. <br>`
+    );
+}
+aveCost(shopList);
