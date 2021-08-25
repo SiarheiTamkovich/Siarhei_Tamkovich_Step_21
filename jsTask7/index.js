@@ -1,6 +1,6 @@
 //--jsTask7 Classwork Array ---
 
-/* --Task № 1   --
+/* --Task № 1   --*
 let arr = [9, 1, 10, 4, 5, 12, 13, 25, 100, 54];
 
 // p. 1 display arr
@@ -238,7 +238,7 @@ function getTextStyle(style) {
 }
 getTextStyle(styleList);
 
-/* --Task № 4 arr rooms   --*/
+/* --Task № 4 arr rooms   --*
 let roomList = [{
     name: `Учебный класс № 101`,         
     capacity: 40,  
@@ -331,3 +331,22 @@ let sortByName = (a, b) => a.name > b.name ? 1 : -1;
 roomList.sort(sortByName);
 printList(roomList);
 
+/* -- additionally1 --*
+function filter_list(array) {
+    return array.filter(function(v) {return typeof v == 'number'})
+}
+console.log(filter_list([1,2,'aasf','1','123',123]));
+
+/* -- additionally2 --*/
+
+function order(words){
+  arr = words.split(` `); // razbit v massive
+  let r = /\d/;
+ //for (i = 0; i < arr.length; i++) {
+ //   document.write(arr[i].match(r));
+ //}   
+ arr.sort((a, b) => a.match(r) > b.match(r) ? 1 : -1); 
+ result = arr.join(` `);
+ return result;
+}
+console.log(order(`is2 Thi1s T4est 3a`));
