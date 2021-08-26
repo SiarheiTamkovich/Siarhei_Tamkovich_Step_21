@@ -18,7 +18,7 @@
 
 //let allprofit = +prompt(`Введите общую сумму выручки от продаж $:`);
 //alert(`Ваша зарплата в этом месяце составила 250$ + 10% от ${allprofit} = ${allprofit/10} Итого: ${allprofit/10+250}$`)
-
+/*
 let data = +prompt(`Введите целое число`);
 if (data === 0) {
     alert(`Вы ввели число равное нулю`)
@@ -27,3 +27,34 @@ if (data === 0) {
 } else if (data < 0) {
     alert(`Введенное число меньше нуля`)
 }
+
+
+let a = +prompt(`Введите целое число`);
+alert(a % 2 && `нечет`||`чет`);
+
+
+let a = +prompt(`введите первое число`);
+let b = +prompt(`введите второе число`);
+let z = prompt(`введите арифметический знак`)
+
+switch (z) {
+    case `+`:
+        alert(`${a+b}`)
+    break;
+    case `-`:
+        alert(`${a-b}`)
+    break;
+    case `/`:
+        alert(`${a/b}`)
+    break;
+    case `*`:
+        alert(`${a*b}`)
+    break
+}
+
+*/
+
+let a = +prompt(`Введите первое число`);
+let b = +prompt(`Введите второе число`);
+let final = (a>b ? a: b);
+alert(`большее число=${final}`);
