@@ -337,7 +337,7 @@ function filter_list(array) {
 }
 console.log(filter_list([1,2,'aasf','1','123',123]));
 
-/* -- additionally2 --*/
+/* -- additionally2 --*
 
 function order(words){
   arr = words.split(` `); // razbit v massive
@@ -350,3 +350,57 @@ function order(words){
  return result;
 }
 console.log(order(`is2 Thi1s T4est 3a`));
+
+/* -- additionally4 remove space  --*
+
+function noSpace(x){
+    return x.replace(/\s+/g, '')
+}
+console.log(noSpace(`8 j 8   mBliB8g  imjB8B8  jl  B`))
+
+/* -- additionally3 add ?  --*
+
+function ensureQuestion(s){
+    s = s + `?`;
+    return s.replace(/\?\?/, '?')
+}
+console.log(ensureQuestion(`Yes`))
+
+/* -- additionally4 join words ?  --*
+function wordsToSentence(words) {
+  return words.join(` `)
+}
+console.log(wordsToSentence(["hello", "world"]))
+
+/* -- additionally5 join words ?  --*/
+//f=''['trim']['bind']`Hello, world!`
+f=
+''
+[
+'\
+t\
+r\
+i\
+m'
+][
+'\
+b\
+i\
+n\
+d'
+]`
+H\
+e\
+l\
+l\
+o\
+,\
+ \
+w\
+o\
+r\
+l\
+d\
+!`
+
+console.log(f())
