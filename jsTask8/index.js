@@ -173,15 +173,19 @@ function summaInWords(num) {
 }
 summaInWords(+prompt());
 
-/* --Task № 3 chenCase downCase   --*/
-function chenCase(str) {
-    str = str.replace(/\d+/g, `_`).split(``);
-    for (let i = 0; i < str.length; i++) {
-      if (str[i] !== str[i].toUpperCase()) {
-        str[i] = str[i].toLowerCase()
-      }
-    }
-    document.write(str);
+/* --Task № 3 chenCase downCase --*/
+function chenCase(str) { 
+    document.write(str +`<br>`);
+    str = str.split(``); 
+    for (let i = 0; i < str.length; i++) { 
+       str[i] = str[i].replace(/\d/, `_`);
+       if (str[i] === str[i].toUpperCase()) { 
+	 str[i] = str[i].toLowerCase();
+	} else {
+	  str[i] = str[i].toUpperCase();
+	}
+     } 
+  document.write(str);
 }
-chenCase(`AaBBcd001EfgH7H8H25l`)
+chenCase(`AaBBcd001EfgH7H8H25l`);
 
