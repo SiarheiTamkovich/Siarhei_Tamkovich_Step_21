@@ -173,19 +173,53 @@ function summaInWords(num) {
 }
 summaInWords(+prompt());
 
-/* --Task № 3 chenCase downCase --*/
+/* --Task № 3 chenCase downCase --*
 function chenCase(str) { 
     document.write(str +`<br>`);
     str = str.split(``); 
     for (let i = 0; i < str.length; i++) { 
        str[i] = str[i].replace(/\d/, `_`);
        if (str[i] === str[i].toUpperCase()) { 
-	 str[i] = str[i].toLowerCase();
-	} else {
-	  str[i] = str[i].toUpperCase();
-	}
-     } 
-  document.write(str);
+	        str[i] = str[i].toLowerCase();
+	    } else {
+	        str[i] = str[i].toUpperCase();
+	    }
+    } 
+    str = str.join(``);
+    document.write(str);
 }
 chenCase(`AaBBcd001EfgH7H8H25l`);
+
+/* --Task № 4 convert dash to CamelCase --*
+function convToCC(str) {
+return str[0].toUpperCase() + str.slice(1) // firs letter
+    .replace(/-([a-z])/g, (match) => match[1].toUpperCase()) // -l
+    .replace(/\s+([a-z])/g, (match) => ` ` + match[1].toUpperCase()); // spaceL
+}
+document.write(convToCC(
+     `font-size background-color text-align`
+));
+
+/* --Task № 5 make ABBR --*
+function makeAbr(str1, str2) {
+  str1 = ` ` + str1;
+  str2 = ` ` + str2;
+  str1 = str1.replace(/-/g, ` `)
+             .match(/\s+([a-z])/g)
+             .join(` `)
+             .toUpperCase()
+             .replace(/\s+/g, ``);
+  str2 = str2.replace(/-/g, ` `)
+             .match(/\s+([а-я])/g)
+             .join(` `)
+             .toUpperCase()
+             .replace(/\s+/g, ``);
+  return `${str1} <br> ${str2}`;
+}
+document.write(makeAbr(
+    `cascading style sheets`, 
+    `объектно-ориентировочное программирование`
+))
+
+/* --Task № 6 make ABBR --*/
 
