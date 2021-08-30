@@ -221,5 +221,51 @@ document.write(makeAbr(
     `объектно-ориентировочное программирование`
 ))
 
-/* --Task № 6 make ABBR --*/
+/* --Task № 6 concatenation of strings --*
+function concatStr(str1, str2, ...str) {
+ document.write(str1, str2, str);
+}
+concatStr(`sring1`, `string2`, `string3`, `string4`, 
+          `+strmore`, `another string`,
+          `match more string`, `it nother nice fanction`,
+          `it allows`,
+          `you to combine as many lines as you like`);
 
+/* --Task № 7 calculator --*
+function calc(str) {
+return str = eval(str);
+}
+document.write(
+calc(`82 + 13 - 2 * 3`)
+);
+
+/* --Task № 8 info about url --*
+function infoUrl(str) {
+ return `Протокол:
+     ${str.match(/^(ht|f)tp(s?)/g)} <br> Домен:
+     ${str.match(/\/\/[a-z]+/)}
+     ${str.match(/.com|.by|.ru|.org/)} <br> Путь:
+     ${str.match(/(\/)[a-z]+(\/)[a-z]+/g)}`;
+}
+document.write(
+infoUrl(`https://itstep.org/ua/about`));
+
+/* --Task № 9 split string --*
+function splitStr(str, spl) {
+    result = str.replaceAll(`${spl}`, `", "`);
+    return `"${result}"`;
+}
+document.write(
+    splitStr(`10/08/2020`, `/`)
+)
+
+/* --Task № 10 text output by template--*/
+
+function textOut(str, ...out) {
+  console.log(...out);
+  return str.replace(/%(\d+)/g, (str, num) => [...out][num - 1]);
+}
+document.write(
+textOut(`Today is %1 %2.%3.%4`, `Monday`, 10, 8, 2020));
+
+/* */
