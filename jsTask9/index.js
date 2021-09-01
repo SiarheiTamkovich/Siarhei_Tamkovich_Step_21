@@ -7,7 +7,7 @@ class PrintMachine {
     }
 }
 
-/* --Task № 2 make news --*/
+/* --Task № 2 make news --*
 
 class createNews {
     constructor(header, text, tags, date) {
@@ -22,10 +22,10 @@ class createNews {
     }
     dateFormation(){
         if (this.date.getDate() === new Date().getDate() && 
-            this.date.getMonth() === newDate().getMonth()){
+            this.date.getMonth() === new Date().getMonth()){
                 this.date = `сегодня`;
         } else if (( new Date().getDate() - this.date.getDate()) < 7){
-            this.date = `${newDate().getDate() - this.date.getDate()} дней назад`;
+            this.date = `${new Date().getDate() - this.date.getDate()} дней назад`;
         } else {
             this.date = `${this.date.getDate()} : 
                          ${this.date.getMonth()} : 
@@ -46,7 +46,7 @@ news.tagsFormation();
 news.dateFormation();
 news.print();
 
-/* --Task № 3 news feed --*/
+/* --Task № 3 news feed --*
 
 class newsFeed {
     constructor(header, text, tags, date) {
@@ -58,4 +58,149 @@ class newsFeed {
 }
 let news = new createNews(`Whats new?`,
      `Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
-    [`meta`,`lena`,`carl`], new Date(2021,8,3));
+    [`meta`,`lena`,`carl`], new Date(2021,8,3))
+
+/*--*/
+
+//---------------------------Homework ---------------------------
+
+/* --Task № 1 Class circle --*
+class Circle{
+    constructor(radius){
+        this.radius = radius;
+    }
+    get radius() {
+      return this._radius;
+    }
+    set radius(value) {
+        this._radius = +prompt(`Введите радиус ${value}`);
+    }
+    get diam() {
+        return this._radius * 2;
+    }
+    squre(){
+        document.write(`Площадь = 
+        ${Math.floor(this.radius * this.radius * Math.PI)} мм.кв., <br>`);
+    }
+    lenght(){
+        document.write(`Длина = 
+        ${Math.floor(this.radius * 2 * Math.PI)} мм.кв., <br>`);
+    }
+    print(){
+        document.write(`Радиус = ${this.radius} мм., <br>`);
+        document.write(`Диаметр = ${this.diam} мм., <br>`);
+    }
+    
+}
+
+let circle = new Circle(50)
+console.log(circle);
+circle.print();
+circle.squre();
+circle.lenght();
+
+/* --Task № 2 Class Html Element --*/
+
+class HtmlElement{
+    constructor(tegName, selfClosing, text, atributs, styles, nestedTegs){
+        this.tegName = tegName;
+        this.selfClosing = selfClosing;
+        this.text = text;
+        this.atributs = atributs;
+        this.styles = styles;
+        this.nestedTegs = nestedTegs;        
+    }
+    getHtml(){
+        let str = [this.selfClosing[0],` `, 
+        this.atributs[0], this.atributs[1], ` `,
+        this.styles[0], this.styles[1], `> `,
+            this.nestedTegs[0].selfClosing[0], ` `,
+            this.nestedTegs[0].atributs[0], ` `,
+            this.nestedTegs[0].atributs[1], ` `,
+            this.nestedTegs[0].styles[0], ` `,
+            this.nestedTegs[0].styles[1], `> `,
+                this.nestedTegs[0].nestedTegs[0].selfClosing[0], ` `,
+                this.nestedTegs[0].nestedTegs[0].atributs[0], ` `,
+                this.nestedTegs[0].nestedTegs[0].atributs[1], ` `,
+                this.nestedTegs[0].nestedTegs[0].styles[0], ` `,
+                this.nestedTegs[0].nestedTegs[0].styles[1], ` `,
+                this.nestedTegs[0].nestedTegs[0].text, ` `,
+                this.nestedTegs[0].nestedTegs[0].selfClosing[1], ` `,
+
+                this.nestedTegs[0].nestedTegs[1].selfClosing[0], ` `,
+                this.nestedTegs[0].nestedTegs[1].atributs[0], ` `,
+                this.nestedTegs[0].nestedTegs[1].atributs[1], ` `,
+                this.nestedTegs[0].nestedTegs[1].styles[0], ` `,
+                this.nestedTegs[0].nestedTegs[1].styles[1], ` `,
+                this.nestedTegs[0].nestedTegs[1].text, ` `,
+                this.nestedTegs[0].nestedTegs[1].selfClosing[1], ` `,
+
+                this.nestedTegs[0].nestedTegs[2].selfClosing[0], ` `,
+                this.nestedTegs[0].nestedTegs[2].atributs[0], ` `,
+                this.nestedTegs[0].nestedTegs[2].atributs[1], ` `,
+                this.nestedTegs[0].nestedTegs[2].styles[0], ` `,
+                this.nestedTegs[0].nestedTegs[2].styles[1], ` `,
+                this.nestedTegs[0].nestedTegs[2].text, ` `,
+                
+                    this.nestedTegs[0].nestedTegs[2].nestedTegs[0].selfClosing[0], ` `,
+                    this.nestedTegs[0].nestedTegs[2].nestedTegs[0].atributs[0], ` `,
+                    this.nestedTegs[0].nestedTegs[2].nestedTegs[0].atributs[1], ` `,
+                    this.nestedTegs[0].nestedTegs[2].nestedTegs[0].styles[0], ` `,
+                    this.nestedTegs[0].nestedTegs[2].nestedTegs[0].styles[1], ` `,
+                    this.nestedTegs[0].nestedTegs[2].nestedTegs[0].text, ` `,
+                    this.nestedTegs[0].nestedTegs[2].nestedTegs[0].selfClosing[1], ` `,
+                this.nestedTegs[0].nestedTegs[2].selfClosing[1], ` `,
+            this.nestedTegs[0].selfClosing[1], ` `,
+
+            this.nestedTegs[1].selfClosing[0], ` `,
+            this.nestedTegs[1].atributs[0], ` `,
+            this.nestedTegs[1].atributs[1], ` `,
+            this.nestedTegs[1].styles[0], ` `,
+            this.nestedTegs[1].styles[1], `> `,
+                this.nestedTegs[1].nestedTegs[0].selfClosing[0], ` `,
+                this.nestedTegs[1].nestedTegs[0].atributs[0], ` `,
+                this.nestedTegs[1].nestedTegs[0].atributs[1], ` `,
+                this.nestedTegs[1].nestedTegs[0].styles[0], ` `,
+                this.nestedTegs[1].nestedTegs[0].styles[1], ` `,
+                this.nestedTegs[1].nestedTegs[0].text, ` `,
+                this.nestedTegs[1].nestedTegs[0].selfClosing[1], ` `,
+
+                this.nestedTegs[1].nestedTegs[1].selfClosing[0], ` `,
+                this.nestedTegs[1].nestedTegs[1].atributs[0], ` `,
+                this.nestedTegs[1].nestedTegs[1].atributs[1], ` `,
+                this.nestedTegs[1].nestedTegs[1].styles[0], ` `,
+                this.nestedTegs[1].nestedTegs[1].styles[1], ` `,
+                this.nestedTegs[1].nestedTegs[1].text, ` `,
+                this.nestedTegs[1].nestedTegs[1].selfClosing[1], ` `,
+
+                this.nestedTegs[1].nestedTegs[2].selfClosing[0], ` `,
+                this.nestedTegs[1].nestedTegs[2].atributs[0], ` `,
+                this.nestedTegs[1].nestedTegs[2].atributs[1], ` `,
+                this.nestedTegs[1].nestedTegs[2].styles[0], ` `,
+                this.nestedTegs[1].nestedTegs[2].styles[1], ` `,
+                this.nestedTegs[1].nestedTegs[2].text, ` `,
+                    this.nestedTegs[1].nestedTegs[2].nestedTegs[0].selfClosing[0], ` `,
+                    this.nestedTegs[1].nestedTegs[2].nestedTegs[0].atributs[0], ` `,
+                    this.nestedTegs[1].nestedTegs[2].nestedTegs[0].atributs[1], ` `,
+                    this.nestedTegs[1].nestedTegs[2].nestedTegs[0].styles[0], ` `,
+                    this.nestedTegs[1].nestedTegs[2].nestedTegs[0].styles[1], ` `,
+                    this.nestedTegs[1].nestedTegs[2].nestedTegs[0].text, ` `,
+                    this.nestedTegs[1].nestedTegs[2].nestedTegs[0].selfClosing[1], ` `,
+                this.nestedTegs[0].nestedTegs[2].selfClosing[1], ` `,
+            this.nestedTegs[0].selfClosing[1], ` `,
+        this.selfClosing[1]];
+        console.log(str.join(``));
+        document.write(str.join(``));
+    }
+}
+let tegA   = new HtmlElement(`a`, [`<a`, `</a>`], `More...`, [`href="https://www.lipsum.com/"`, `target="_blank" >`], [``], [``]);
+let tegP   = new HtmlElement(`p`, [`<p`, `</p>`], `"Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Curabitur auctor dignissim justo vitae commodo. Pellentesque eros elit, elementum sit amet sodales placerat,
+    efficitur quis sapien. Aliquam accumsan risus ut consectetur viverra. Nulla facilisi. Vestibulum id."`,
+    [``], [`style="text-align: justify;" >`], [tegA]);
+let tegH3   = new HtmlElement(`h3`, [`<h3>`, `</h3>`], `What is Lorem Ipsum?`, [``, ``], [``], [``]);
+let tegImg   = new HtmlElement(`Img`, [`<img`, `>`], ``, [`src="lipsum.jpg"`, `alt="Lorem Ipsum"`], [`style="width: 100%"`], [``]);
+let tegDiv2 = new HtmlElement(`div2`, [`<div`, `</div>`], ``, [``], [`style="width: 300px;`, `margin: 10px;"`], [tegH3, tegImg, tegP]);
+let tegDiv1 = new HtmlElement(`div1`, [`<div`, `</div>`], ``, [`id="wrapper"`], [`style="display: flex;" `], [tegDiv2, tegDiv2]);
+
+tegDiv1.getHtml();
