@@ -99,7 +99,7 @@ circle.print();
 circle.squre();
 circle.lenght();
 
-/* --Task № 2 Class Html Element --*
+/* --Task № 2 Class Html Element --*/
 
 class HtmlElement{
     constructor(tegName, selfClosing, text, atributs, styles, nestedTegs){
@@ -217,7 +217,7 @@ let tegDiv1 = new HtmlElement(`div1`, [`<div`, `</div>`], ``, [`id="wrapper"`], 
 
 tegDiv1.getHtml();
 
-/* --Task № 3  Class Css Class --*/
+/* --Task № 3  Class Css Class --*
 class CssClass{
     constructor(cName, cStyls){
     this.cName = cName;
@@ -243,7 +243,7 @@ let classBlock = new CssClass(`block`, [`width: 300px; margin: 10px;`]);
 let classImg = new CssClass(`img`, [`width: 100%;`]);
 let classText = new CssClass(`text`, [`text-align: justify;`]);
 
-/* --Task № 4  Class HTML Block --*/
+/* --Task № 4  Class HTML Block --*
 class HtmlElement{
     constructor(teg1, teg2, IdClsAtr, text, nBloks){
         this.teg1 = teg1;
@@ -287,3 +287,4 @@ class HtmlBlock{
 let htmlBlock = new HtmlBlock([classWrap, classBlock, classImg, classText], [tegP, tegA]);
 
 htmlBlock.printBlock();
+*/
