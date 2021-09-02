@@ -99,7 +99,7 @@ circle.print();
 circle.squre();
 circle.lenght();
 
-/* --Task № 2 Class Html Element --*/
+/* --Task № 2 Class Html Element --*
 
 class HtmlElement{
     constructor(tegName, selfClosing, text, atributs, styles, nestedTegs){
@@ -216,3 +216,74 @@ let tegDiv1 = new HtmlElement(`div1`, [`<div`, `</div>`], ``, [`id="wrapper"`], 
 //tegImg.setStyle(`width: 50%"`); // Set Styles 
 
 tegDiv1.getHtml();
+
+/* --Task № 3  Class Css Class --*/
+class CssClass{
+    constructor(cName, cStyls){
+    this.cName = cName;
+    this.cStyls = cStyls;
+    }
+    getCss(){
+        document.write(`
+        .${this.cName}{ <br>
+           ${this.cStyls.join(`<br>`)};
+        }`);
+    }
+    setCssStyle(value){
+        this._cStyls = this.cStyls.push(value);
+    }
+    delCssStyle(){
+        this._cStyls = this._cStyls.pop();
+    }
+}
+
+let classWrap = new CssClass(`wrap`, [`display: flex`]);
+//classWrap.getCss()
+let classBlock = new CssClass(`block`, [`width: 300px; margin: 10px;`]);
+let classImg = new CssClass(`img`, [`width: 100%;`]);
+let classText = new CssClass(`text`, [`text-align: justify;`]);
+
+/* --Task № 4  Class HTML Block --*/
+class HtmlElement{
+    constructor(teg1, teg2, IdClsAtr, text, nBloks){
+        this.teg1 = teg1;
+        this.teg2 = teg2;
+        this.IdClsAtr = IdClsAtr;
+        this.text = text;
+        this.nBloks = nBloks;
+    }
+}
+let tegA = new HtmlElement(`<a`, `</a>`, `href="http://www.lipsum.com/" target="_blank">`, ``, ``)
+let tegP = new HtmlElement(`<p`, `</p>`, `class="text">`, `"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+                                    Curabitur auctor dignissim justo vitae commodo.\
+                                    Pellentesque eros elit, elementum sit amet sodales placerat, efficitur quis sapien.\
+                                    Aliquam accumsan risus ut consectetur viverra. Nulla facilisi. \
+                                    Vestibulum id.`, tegA);
+
+class HtmlBlock{
+    constructor(styles, elements){
+        this.styles = styles;
+        this.elements = elements;
+    }
+    printBlock(){
+        let str = `<style>`;
+        for (let i = 0; i < this.styles.length; i++){
+            str += (` .${this.styles[i].cName} { ${this.styles[i].cStyls}} `);
+        }
+        str += `</style>`
+        for (let i = 0; i < this.elements.length; i++){
+            str += (`
+            ${this.elements[i].teg1} ${this.elements[i].IdClsAtr} 
+            ${this.elements[i].text} 
+            `);
+        }
+        document.write(str)
+        console.log(str);
+        
+
+    }
+}
+
+let htmlBlock = new HtmlBlock([classWrap, classBlock, classImg, classText], [tegP, tegA]);
+
+htmlBlock.printBlock();
