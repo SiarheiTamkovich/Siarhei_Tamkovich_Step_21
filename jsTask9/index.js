@@ -192,15 +192,27 @@ class HtmlElement{
         console.log(str.join(``));
         document.write(str.join(``));
     }
+    setAtribut(value){
+        this._atributs = this.atributs.push(value);
+    }
+    setStyle(value){
+        this._styles = this.styles.push(value);
+    }
+    setAddTegUp(value){
+        this._nestedTegs = this.nestedTegs.unshift(value);
+    }
+    setAddTegDown(value){
+        this._nestedTegs = this.nestedTegs.push(value);
+    }
 }
-let tegA   = new HtmlElement(`a`, [`<a`, `</a>`], `More...`, [`href="https://www.lipsum.com/"`, `target="_blank" >`], [``], [``]);
-let tegP   = new HtmlElement(`p`, [`<p`, `</p>`], `"Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Curabitur auctor dignissim justo vitae commodo. Pellentesque eros elit, elementum sit amet sodales placerat,
-    efficitur quis sapien. Aliquam accumsan risus ut consectetur viverra. Nulla facilisi. Vestibulum id."`,
-    [``], [`style="text-align: justify;" >`], [tegA]);
-let tegH3   = new HtmlElement(`h3`, [`<h3>`, `</h3>`], `What is Lorem Ipsum?`, [``, ``], [``], [``]);
-let tegImg   = new HtmlElement(`Img`, [`<img`, `>`], ``, [`src="lipsum.jpg"`, `alt="Lorem Ipsum"`], [`style="width: 100%"`], [``]);
-let tegDiv2 = new HtmlElement(`div2`, [`<div`, `</div>`], ``, [``], [`style="width: 300px;`, `margin: 10px;"`], [tegH3, tegImg, tegP]);
-let tegDiv1 = new HtmlElement(`div1`, [`<div`, `</div>`], ``, [`id="wrapper"`], [`style="display: flex;" `], [tegDiv2, tegDiv2]);
+let tegA    = new HtmlElement(`a`,    [`<a`, `</a>`   ], `More...`,               [`href="https://www.lipsum.com/"`, `target="_blank" >`], [``], [``]);
+let tegP    = new HtmlElement(`p`,    [`<p`, `</p>`   ], `"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor dignissim justo vitae commodo. Pellentesque eros elit, elementum sit amet sodales placerat, efficitur quis sapien. Aliquam accumsan risus ut consectetur viverra. Nulla facilisi. Vestibulum id."`,
+                                                                                  [``], [`style="text-align: justify;" >`], [tegA]);
+let tegH3   = new HtmlElement(`h3`,   [`<h3>`, `</h3>` ], `What is Lorem Ipsum?`, [``, ``], [``], [``]);
+let tegImg  = new HtmlElement(`Img`,  [`<img`, `>`     ], ``,                     [`src="loipsum.png"`, `alt="Lorem Ipsum"`], [`style="width: 100%;`], [``]);
+let tegDiv2 = new HtmlElement(`div2`, [`<div`, `</div>`], ``, [``],               [`style="width: 300px;`, `margin: 10px;"`], [tegH3, tegImg, tegP]);
+let tegDiv1 = new HtmlElement(`div1`, [`<div`, `</div>`], ``, [`id="wrapper"`],   [`style="display: flex;" `], [tegDiv2, tegDiv2]);
+
+//tegImg.setStyle(`width: 50%"`); // Set Styles 
 
 tegDiv1.getHtml();
