@@ -253,12 +253,16 @@ class HtmlElement{
         this.nBloks = nBloks;
     }
 }
-let tegA = new HtmlElement(`<a`, `</a>`, `href="http://www.lipsum.com/" target="_blank">`, ``, ``)
+let tegA = new HtmlElement(`<a`, `</a>`, `href="http://www.lipsum.com/" target="_blank">`, `More...`, [])
 let tegP = new HtmlElement(`<p`, `</p>`, `class="text">`, `"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
                                     Curabitur auctor dignissim justo vitae commodo.\
                                     Pellentesque eros elit, elementum sit amet sodales placerat, efficitur quis sapien.\
                                     Aliquam accumsan risus ut consectetur viverra. Nulla facilisi. \
-                                    Vestibulum id.`, tegA);
+                                    Vestibulum id.`, [tegA]);
+let tegH3   = new HtmlElement(`<h3>`,`</h3>`,` `,`What is Lorem Ipsum?`, []);                                 
+let tegImg  = new HtmlElement(`<Img`, `>`, `class="img" src="loipsum.png" alt="Lorem Ipsum"`, ``, ``);
+let tegDiv2 = new HtmlElement(`<div`, `</div>`, `class="block">`, ` `, [tegH3, tegImg, tegP]);
+let tegDiv1 = new HtmlElement(`<div`, `</div>`, `id="wrapper" class="wrap">`, ``, [tegDiv2, tegDiv2]);
 
 class HtmlBlock{
     constructor(styles, elements){
@@ -270,20 +274,37 @@ class HtmlBlock{
         for (let i = 0; i < this.styles.length; i++){
             str += (` .${this.styles[i].cName} { ${this.styles[i].cStyls}} `);
         }
-        str += `</style>`
-        for (let i = 0; i < this.elements.length; i++){
-            str += (`
-            ${this.elements[i].teg1} ${this.elements[i].IdClsAtr} 
-            ${this.elements[i].text} 
-            `);
-        }
-        document.write(str)
-        console.log(str);
-        
-
+            str += `</style>`
+        str += `
+            ${this.elements.teg1} ${this.elements.IdClsAtr} ${this.elements.text}`;
+            for (let i = 0; i < this.elements.nBloks.length; i++) {
+              str += `
+                ${this.elements.nBloks[i].teg1} ${this.elements.nBloks[i].IdClsAtr} \
+                ${this.elements.nBloks[i].text}` 
+                for (let ii = 0; ii < this.elements.nBloks[i].nBloks.length; ii++) {
+                  str += `
+                    ${this.elements.nBloks[i].nBloks[ii].teg1} \
+                    ${this.elements.nBloks[i].nBloks[ii].IdClsAtr} \
+                    ${this.elements.nBloks[i].nBloks[ii].text}`
+                    for (let iii = 0; 
+                        iii < this.elements.nBloks[i].nBloks[ii].nBloks.length; iii++) {
+                      str +=`
+                        ${this.elements.nBloks[i].nBloks[ii].nBloks[iii].teg1} \
+                        ${this.elements.nBloks[i].nBloks[ii].nBloks[iii].IdClsAtr} \
+                        ${this.elements.nBloks[i].nBloks[ii].nBloks[iii].text} \
+                        ${this.elements.nBloks[i].nBloks[ii].nBloks[iii].teg2}`
+                    }
+                  str += `${this.elements.nBloks[i].nBloks[ii].teg2}`;
+                }
+              str += `${this.elements.nBloks[i].teg2}` 
+            }  
+          str +=`${this.elements.teg2}`               
+    document.write(str);
+    console.log(str);
     }
 }
 
-let htmlBlock = new HtmlBlock([classWrap, classBlock, classImg, classText], [tegP, tegA]);
+let htmlBlock = new HtmlBlock([classWrap, classBlock, classImg, classText], tegDiv1);
 
 htmlBlock.printBlock();
+/* --*/
