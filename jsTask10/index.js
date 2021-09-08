@@ -20,3 +20,5 @@ class Circle {
 }
 let c = new Circle();
 c.ploshad();
+
+/* --Task № 2 Circle --*/
