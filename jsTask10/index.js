@@ -59,3 +59,44 @@ lass Button {
     }
     
     let btn1 = new BootstrapButton();
+
+    /* --Task № 3 Class Figura --*/
+
+    class Figura {
+        constructor(nameF, storonaA, storonaB, storonaC) {
+          this.nameF = nameF;
+          this.storonaA = storonaA;
+          this.storonaB = storonaB;
+          this.storonaC = storonaC;
+        }
+      
+        get getNameOfFigure() {
+          return this.nameF;
+        } 
+      
+        showInfo() {
+          document.write('Информация о фигуре')
+        }
+      
+        perimetr() {
+          document.write('Периметр фигуры')
+        }
+      
+        ploshadi() {
+          document.write('Площадь фигуры')
+        }
+      }
+      
+      class Kvadrat extends Figura{
+        showInfo() {
+          super.showInfo();
+          document.write('Сторона', this.storonaA )
+        }
+      
+        ploshadi() {
+          super.ploshadi();
+          document.write(this.storonaA * this.storonaA)
+        }
+      }
+      
+      let kv = new Kvadrat('Квадрат', 20)
