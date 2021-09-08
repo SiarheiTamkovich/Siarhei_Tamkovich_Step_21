@@ -21,7 +21,7 @@ class Circle {
 let c = new Circle();
 c.ploshad();
 
-/* --Task № 1 Class Button --*/
+/* --Task № 1 Class Button --*
 class Button {
     constructor() {
       this.text = 'Button';
@@ -41,10 +41,9 @@ class Button {
     hideBtn() {
         let element = document.querySelector('#btn');
         element.style.backgroundColor = "red";
-    }
-    
+    } 
 
-/* --Task № 4 Class Figura --*/
+/* --Task № 2 Class Figura --*
 
 class Figure {
     constructor(name,storonaA,storonaB,storonaC){
@@ -53,52 +52,44 @@ class Figure {
         this.storonaB = storonaB;
         this.storonaC = storonaC;
     }   
-
     get fullName(){
-        return this.name
+        return this.name;
     }
-
     showInfo() {
         document.write('Информация');
     }
-    
     ploshad(){
-        document.write('площадь')
+        document.write('Площадь')
     }
-
     perimetr(){
-        document.write('периметр')
+        document.write('Периметр')
     }
 }
 
 class Kvadrat extends Figure{
     showInfo(){
         super.showInfo();
-        document.write('сторона',this.storonaA)
+        document.write('Сторона квадрата=',this.storonaA)
     }
-
     ploshad(){
         super.ploshad();
-        document.write('квадрата',${this.storonaA * this.storonaA})
+        document.write('Площадь квадрата=',`${this.storonaA * this.storonaA}`)
     }
-
     perimetr(){
         super.perimetr();
-        document.write(this.storonaA + this.storonaA)
+        document.write(`Периметр квадрата=`, this.storonaA + this.storonaA)
     }
 }
 
 class Pryamoygolnik extends Figure{
     showInfo(){
         super.showInfo();
-        document.write('сторона',this.storonaA)
+        document.write('Cторона прямоугольника=',this.storonaA)
     }
-
     ploshad(){
         super.ploshad();
-        document.write('Прямоугольника', this.storonaA * this.storonaB)
+        document.write('Площадь прямоугольника=', this.storonaA * this.storonaB)
     }
-
     perimetr(){
         super.perimetr();
         document.write(this.storonaA + this.storonaB)
@@ -108,26 +99,21 @@ class Pryamoygolnik extends Figure{
 class Triangle extends Figure{
     showInfo(){
         super.showInfo();
-        document.write('сторона',this.storonaA)
+        document.write('Сторона треугольника=',this.storonaA)
     }
-
     ploshad(){
         super.ploshad();
-        document.write(this.storonaA * this.storonaA)
+        document.write(this.storonaA * this.storonaB / 2)
     }
-
     perimetr(){
         super.perimetr();
-        document.write(this.storonaA + this.storonaA)
+        document.write(this.storonaA + this.storonaB + this.storonaC)
     }
 }
 
-let figures = []
-
+let figures = [];
 let kv = new Kvadrat('Квадрат', 10);
-
 let pr = new Pryamoygolnik('Прямоугольник', 10 , 20);
-
 let tr = new Triangle('Треугольник', 10, 10, 20);
 
 figures.push(kv)
@@ -138,6 +124,22 @@ console.log(figures);
 for (let i = 0; i < figures.length; i++) {
     console.log( figures[i] );
     figures[i].ploshad();
-    figures[i].perimetr
+    figures[i].perimetr();
 }
-      
+
+/* --Task № 3 ExtentedArray --*
+class ExtentedArray extends Array{
+    getString(separator){
+        for (let i = 0; i < this.length; i++) {
+          document.write(this[i], separator);
+        }
+        document.write()
+    }
+}
+let arr = new ExtentedArray(1,2,3,4,5,6,7,8);
+console.log(arr);
+arr.getString(`*`);
+
+//---------------------------Homework ---------------------------
+
+/* --Task № 1 Marker --*/
