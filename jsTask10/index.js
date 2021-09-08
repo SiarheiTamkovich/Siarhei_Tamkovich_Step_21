@@ -22,13 +22,12 @@ let c = new Circle();
 c.ploshad();
 
 /* --Task № 1 Class Button --*/
-lass Button {
+class Button {
     constructor() {
       this.text = 'Button';
       this.height = '100px';
       this.width = '200px';
     }
-  
     showBtn() {
       let button = document.createElement('button');
       button.id = 'qwe';
@@ -42,61 +41,103 @@ lass Button {
     hideBtn() {
         let element = document.querySelector('#btn');
         element.style.backgroundColor = "red";
-      }
     }
     
-    let btn = new Button();
-    
-    class BootstrapButton extends Button {
-      constructor() {
-        super();
-        this.color = 'red';
-      }
-    
-      showBtn() {
-        document.write(<button style="height:${this.height}; width:${this.width}; background-color:${this.color}">${this.text}</button>)
-      }
+
+/* --Task № 4 Class Figura --*/
+
+class Figure {
+    constructor(name,storonaA,storonaB,storonaC){
+        this.name = name;
+        this.storonaA = storonaA;
+        this.storonaB = storonaB;
+        this.storonaC = storonaC;
+    }   
+
+    get fullName(){
+        return this.name
+    }
+
+    showInfo() {
+        document.write('Информация');
     }
     
-    let btn1 = new BootstrapButton();
+    ploshad(){
+        document.write('площадь')
+    }
 
-    /* --Task № 3 Class Figura --*/
+    perimetr(){
+        document.write('периметр')
+    }
+}
 
-    class Figura {
-        constructor(nameF, storonaA, storonaB, storonaC) {
-          this.nameF = nameF;
-          this.storonaA = storonaA;
-          this.storonaB = storonaB;
-          this.storonaC = storonaC;
-        }
+class Kvadrat extends Figure{
+    showInfo(){
+        super.showInfo();
+        document.write('сторона',this.storonaA)
+    }
+
+    ploshad(){
+        super.ploshad();
+        document.write('квадрата',${this.storonaA * this.storonaA})
+    }
+
+    perimetr(){
+        super.perimetr();
+        document.write(this.storonaA + this.storonaA)
+    }
+}
+
+class Pryamoygolnik extends Figure{
+    showInfo(){
+        super.showInfo();
+        document.write('сторона',this.storonaA)
+    }
+
+    ploshad(){
+        super.ploshad();
+        document.write('Прямоугольника', this.storonaA * this.storonaB)
+    }
+
+    perimetr(){
+        super.perimetr();
+        document.write(this.storonaA + this.storonaB)
+    }
+}
+
+class Triangle extends Figure{
+    showInfo(){
+        super.showInfo();
+        document.write('сторона',this.storonaA)
+    }
+
+    ploshad(){
+        super.ploshad();
+        document.write(this.storonaA * this.storonaA)
+    }
+
+    perimetr(){
+        super.perimetr();
+        document.write(this.storonaA + this.storonaA)
+    }
+}
+
+let figures = []
+
+let kv = new Kvadrat('Квадрат', 10);
+
+let pr = new Pryamoygolnik('Прямоугольник', 10 , 20);
+
+let tr = new Triangle('Треугольник', 10, 10, 20);
+
+figures.push(kv)
+figures.push(pr)
+figures.push(tr)
+console.log(figures);
+
+for (let i = 0; i < figures.length; i++) {
+    console.log( figures[i] );
+    figures[i].ploshad();
+    figures[i].perimetr
+}
       
-        get getNameOfFigure() {
-          return this.nameF;
-        } 
-      
-        showInfo() {
-          document.write('Информация о фигуре')
-        }
-      
-        perimetr() {
-          document.write('Периметр фигуры')
-        }
-      
-        ploshadi() {
-          document.write('Площадь фигуры')
-        }
-      }
-      
-      class Kvadrat extends Figura{
-        showInfo() {
-          super.showInfo();
-          document.write('Сторона', this.storonaA )
-        }
-      
-        ploshadi() {
-          super.ploshadi();
-          document.write(this.storonaA * this.storonaA)
-        }
-      }
-      
-      let kv = new Kvadrat('Квадрат', 20)
