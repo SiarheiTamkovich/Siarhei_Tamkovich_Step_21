@@ -142,4 +142,113 @@ arr.getString(`*`);
 
 //---------------------------Homework ---------------------------
 
-/* --Task № 1 Marker --*/
+/* --Task № 1 Class Marker --*
+class Marker {
+    constructor(colour, paintVolume){
+        this.colour = colour;
+        this.paintVolume = paintVolume;
+    }
+    printStr(str){
+        str = str.split(``);
+        let n = 0;
+ //       console.log(str)
+        document.write(`<h3 style= "color:${this.colour}">`);
+        let i = this.paintVolume; 
+        while (i > 0){
+           document.write(str[n]);
+           n != str.length - 1 ? n++: n = 0;   
+           str[n] === ` ` ? 0 : i -= 0.5;
+        }
+        document.write(`</h3>`);
+    }
+}
+let redMarker = new Marker(`red`, 100);
+redMarker.printStr(`asd fgh -jtk-`)
+
+class MarkerRefill extends Marker{
+    refill(paintVolume){
+        this.paintVolume = paintVolume;
+        console.log(paintVolume)
+    }
+}
+let greenMarker = new MarkerRefill(`yellow`, 50);
+greenMarker.printStr(`ddffkk* 09+`, 20);
+greenMarker.refill(60);
+greenMarker.printStr(`ddffkk* 09+` );
+
+/* --Task № 2 Class ExtendedDate --*/
+class ExtendedDate extends Date{
+    strDate(dd,mm,yyyy){
+        let arrdd = [``, `первое`, `второе`, `третье`, `четвертое`, `пятое`,
+                     `шестое`, `седьмое`, `восьмое`, `девятое`, `десятое`,
+                    `одиннадцатое`, `двенадцатое`, `тринадцатое`, `четырнадцатое`, `пятнадцатое`,
+                    `шестнадцатое`, `семнадцатое`, `восемнадцатое`, `девятнадцатое`, `двадцатое`,
+                    `двадцать первое`, `двадцать второе`, `двадцать третье`, `двадцать четвертое`, `двадцать пятое`,
+                    `двадцать шестое`, `двадцать седьмое`, `двадцать восьмое`, `двадцать девятое`, 
+                    `тридцатое`, `тридцать первое`];
+        let arrmm = [``, `января`, `февраля`, `марта`, `апреля`, `мая`, `июня`,
+                    `июля`, `августа`, `сентября`, `октября`, `ноября`, `декабря`]
+        document.write(arrdd[dd], ` `, arrmm[mm], ` `, yyyy, ` года <br>`);
+    } 
+    compareDate(dd,mm,yyyy){
+        let dateNow = Date.now();
+        let date = new Date(`${mm},${dd},${yyyy}`);
+        date = Date.parse(date);
+ //       console.log(dateNow); console.log(date);
+        return date >= dateNow ? true: false;
+    }
+    leapYear(yyyy){ 
+        return (yyyy%400 === 0 || yyyy%4 === 0 && yyyy%100 != 0);
+    }
+    nextDate(dd,mm,yyyy){
+        if (dd === 28){ // leap Year
+//            console.log(this.leapYear(yyyy));
+            if (this.leapYear(yyyy) === true){
+                dd = 29;
+            } else {
+                dd = 1;
+                mm += 1;
+            }
+            return this.strDate(dd,mm,yyyy);
+        }
+        if (mm === 4 || mm === 6 || mm === 9 || mm === 11){
+            if (dd === 30){
+                dd = 1;
+                mm += 1;
+            } else {
+                dd += 1;
+            }
+        } else {
+            if (dd === 31){
+                if (mm === 12) {
+                    dd = 1;
+                    mm = 0;
+                    yyyy += 1;
+                }
+                dd = 1;
+                mm += 1;
+            } else {
+                dd +=1;
+            }
+        }
+        
+//     console.log(dd,mm,yyyy);
+      return this.strDate(dd,mm,yyyy);
+    }
+}
+// p.2.1
+let newDate = new ExtendedDate();
+//console.log(newDate.toLocaleDateString());
+newDate.strDate(01,09,2021);
+// p.2.2
+let comp = newDate.compareDate(10,09,2021);
+console.log(comp);
+// p.2.3
+let year = newDate.leapYear(2020);
+console.log(year);
+// p.2.4
+let nextdate = newDate.nextDate(28,02,2020);
+
+
+
+
