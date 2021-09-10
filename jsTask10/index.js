@@ -176,7 +176,7 @@ greenMarker.printStr(`ddffkk* 09+`, 20);
 greenMarker.refill(60);
 greenMarker.printStr(`ddffkk* 09+` );
 
-/* --Task № 2 Class ExtendedDate --*/
+/* --Task № 2 Class ExtendedDate --*
 class ExtendedDate extends Date{
     strDate(dd,mm,yyyy){
         let arrdd = [``, `первое`, `второе`, `третье`, `четвертое`, `пятое`,
@@ -249,6 +249,51 @@ console.log(year);
 // p.2.4
 let nextdate = newDate.nextDate(28,02,2020);
 
+/* --Task № 3 Class Employee --*/
+class Employee{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+}
+let emp1 = new Employee(`Natasha`,19);
+let emp2 = new Employee(`Vera`,21);
+let emp3 = new Employee(`Oleg`,24);
+let emp4 = new Employee(`Sergey`,22);
+// p.3.1
+let bankEmployee = [emp1,emp2,emp3,emp4];
+// p.3.2
+class EmpTable{
+    constructor(arr){
+        this.arr = arr;
+    }
+    getHtml(){
+//        console.log(this.arr)
+        for (let i = 0; i < this.arr.length; i++){
+           document.write(`Name: ${this.arr[i].name}, age: ${this.arr[i].age} <br>`);
+        }
+    }
+}
+// p.3.3
+let empTable = new EmpTable(bankEmployee);
+//empTable.getHtml();
+
+/* --Task № 4 Class StyledEmpTable --*/
+class StyledEmpTable extends EmpTable{
+    getStyles(style){
+        document.write(`<style> .p {${style}} </style>`)
+    }
+    getHtml(){
+        super.getHtml();
+        for (let i = 0; i < this.arr.length; i++){
+         document.write(`<p class="p"> Name: ${this.arr[i].name}, age: ${this.arr[i].age}</p>`);
+        }
+    }
+}
+// p.4.2
+let styledEmpTable = new StyledEmpTable(bankEmployee);
+styledEmpTable.getStyles(`margin: 0; color: red; font-size: 20px;`);
+styledEmpTable.getHtml();
 
 
 
