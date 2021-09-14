@@ -1,4 +1,4 @@
-//--jsTask11 classwork Event handling ---
+//--jsTask11 Event handling ---
 
 /* --Task № 1 Random number --*/
 function random(){
