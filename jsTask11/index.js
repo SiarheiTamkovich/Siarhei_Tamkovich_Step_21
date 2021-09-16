@@ -37,4 +37,9 @@ elemBtn.addEventListener(`click`, function(){  //! add listener
                                 cssStyle.display = `none`;
 });
 
+/*--Task № 4 select --*/
+let elemMenu = document.getElementById(`menu`).innerHTML;
+console.log(elemMenu);
+
+
   
