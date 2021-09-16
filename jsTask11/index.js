@@ -11,33 +11,30 @@ btn.addEventListener(`click`, function(){
   num.innerHTML = random();
 });
 
-/* --Task № 2 track mouse coordinates --*
-document.querySelector('#container').onmousemove = function (event){
-  document.querySelector('#x').innerHTML = event.offsetX;
-  document.querySelector('#y').innerHTML = event.offsetY;
-  if( event.which == 1){
-      document.querySelector('#click').innerHTML = 'Левая кнопка';
-  } else if(event.which == 3){
-      document.querySelector('#click').innerHTML = 'Правая кнопка';
-  }
-}
+/*--Task № 2 track mouse coordinates with addEventListener--*/
+let elem = document.getElementById(`container`); //? get element
 
-/* --Task № 2 track mouse coordinates with addEventListener--*/
-let elem = document.querySelector(`#container`);
-let X = document.querySelector(`#x`);
-let Y = document.querySelector(`#y`);
-
-document.addEventListener(`mousemove`, function(event){
-  document.querySelector('#x').innerHTML = event.offsetX;
-  document.querySelector('#y').innerHTML = event.offsetY;
+elem.addEventListener(`mousemove`, function(event){  //! listener
+  document.getElementById(`x`).innerHTML = event.offsetX;
+  document.getElementById(`y`).innerHTML = event.offsetY;
 });
-document.addEventListener(`mouseup`, function(event){
+
+elem.addEventListener(`mouseup`, function(event){
   if (event.button == 0){
-   document.querySelector('#click').innerHTML = 'Левая кнопка';
+   document.getElementById('click').innerHTML = `Левая кнопка`;
   } else if (event.button == 2) {
-   document.querySelector('#click').innerHTML = 'Правая кнопка'
+   document.getElementById('click').innerHTML = `Правая кнопка`;
   }
 });
 
+/*--Task № 3 hide / show text --*/
+let elemBtn = document.getElementById(`btn2`); //? get element
+elemBtn.addEventListener(`click`, function(){  //! add listener
+  let cssStyle = 0;
+  cssStyle = document.getElementById(`text`).style; //? get CSS Style
+ // console.log(cssStyle);
+  cssStyle.display === `none` ? cssStyle.display = ``: 
+                                cssStyle.display = `none`;
+});
 
   
