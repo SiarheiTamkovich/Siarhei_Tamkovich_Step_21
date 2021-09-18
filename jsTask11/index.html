@@ -7,8 +7,38 @@
     <title>jsTask11 - Event handling </title>
     <script src="index.js" defer></script>
 </head>
+    <style>
+        .menu-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 10%;
+            height: 60px;
+            background-color: rgb(131, 216, 216);
+            font-size: 20px;
+        }
+        .text2 {
+            width: 90%;
+            height: 60px;
+            background-color: rgb(245, 243, 225);
+        }
+        .test2-content {
+        animation-duration: 4s;
+        animation-name: slider;
+        }
+        @keyframes slider {
+            from {
+                margin-left: 100%;
+                 width: 300%;
+            }
+             to {
+               margin-left: 0%;
+               width: 100%;
+            }
+        }   
+    </style>
     <body>
-        <!--TODO Task 1 -->
+        <!-- Task 1 -->
         <h5 style="color: red;">Classwork Task 1:</h5>
         <div style="background-color: rgb(243, 232, 217); 
                     width: 50%;
@@ -18,7 +48,7 @@
             <input class="btn" type="button" value="Generate random number"/>
             <br>
         </div>
-        <!--TODO Task 2 -->
+        <!-- Task 2 -->
         <h5 style="color: red;">Classwork Task 2</h5>
         <div id="container" style="background-color: rgb(216, 248, 252); 
                                    width: 50%;
@@ -27,7 +57,7 @@
             <h3>Y=<span id="y"></span></h3>
             <h4 id="click"></h4>
         </div>
-        <!--TODO Task 3 -->
+        <!-- Task 3 -->
         <h5 style="color: red;">Classwork Task 3:</h5>
         <div style="background-color: rgb(208, 233, 176); 
                     width: 50%;
@@ -39,41 +69,14 @@
                error autem vero dolores eligendi dicta.
             </p>                                
         </div>
-        <!-- Task 4 -->
-        <h5 style="color: red;">Classwork Task 3:</h5>
+        <!--TODO Task 4 -->
+        <h5 style="color: red;">Classwork Task 4:</h5>
         <div class="conteiner" style="display: flex;"> 
-            <div id="menu" style="background-color: rgb(131, 216, 216);
-                                     width: 10%;
-                                     height: 160px;
-                                     display: flex;
-                                     flex-direction: column;
-                                     justify-content: space-around;
-                                     font-size: 20px;">
-                <button>Html</button>
-                <button>Css</button>
-                <button>Js</button>
-            </div>
-            <div class="text2" style="background-color: rgb(245, 243, 225);">
-                <p id="html">
-                    HTML (от англ. HyperText Markup Language — «язык гипертекстовой разметки») 
-                    — стандартизированный язык разметки документов для просмотра веб-страниц в браузере.
-                </p>
-                <p id="css">
-                    CSS (/siːɛsɛs/ англ. Cascading Style Sheets «каскадные таблицы стилей») — 
-                    формальный язык описания внешнего вида документа (веб-страницы)
-                </p>
-                <p id="js">
-                    JavaScript (/ˈdʒɑːvɑːˌskrɪpt/; аббр. JS /ˈdʒeɪ.ɛs./) — мультипарадигменный
-                    язык программирования. Поддерживает объектно-ориентированный, императивный 
-                    и функциональный стили. 
-                </p>
-            </div>
-            <!-- Task 6 -->
-            <div>
-                <div>
-                    
-                </div>
-            </div>
+            <div class="menu-button" id="menu"></div>
+            <div class="text2"></div>    
         </div>
+        <!--TODO Task 5 -->
     </body>
 </html>
+
+

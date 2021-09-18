@@ -38,8 +38,29 @@ elemBtn.addEventListener(`click`, function(){  //! add listener
 });
 
 /*--Task № 4 select --*/
+class textMenu { //! block menu
+  constructor(btnMenuItem,textItem){
+    this.btnMenuItem = `<button>${btnMenuItem}</button>`;
+    this.textItem = `<p class="test2-content" id="html">${textItem}</p>`;
+  }
+  makeMenu(){
+    return this.btnMenuItem;
+  }
+}
+
+let arrItem = []
+let arrText = [`HTML (от англ. HyperText Markup Language — «язык гипертекстовой разметки») \
+               — стандартизированный язык разметки документов для просмотра веб-страниц в браузере.`,
+               `CSS (/siːɛsɛs/ англ. Cascading Style Sheets «каскадные таблицы стилей») — \
+                формальный язык описания внешнего вида документа (веб-страницы)`,
+                `JavaScript (/ˈdʒɑːvɑːˌskrɪpt/; аббр. JS /ˈdʒeɪ.ɛs./) — мультипарадигменный
+                язык программирования. Поддерживает объектно-ориентированный, императивный 
+                и функциональный стили. `,]
+
 let elemMenu = document.getElementById(`menu`).innerHTML;
 console.log(elemMenu);
+
+
 
 
   
