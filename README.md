@@ -1,1 +1,1 @@
-https://siarheitamkovich.github.io/Siarhei_Tamkovich_Step_21/
+https://siarheitamkovich.github.io/Siarhei_Tamkovich_Step_21/Projects/Stimulas/
