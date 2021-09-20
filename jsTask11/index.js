@@ -72,7 +72,9 @@ let arrText = [
 ];
 let createItem = new textMenu(arrItem, arrText);
 
-
+/*--Task № 4 select --*/
+let inpP = document.querySelector(`#inp1`);
+console.log(inpP)
 
 
 
