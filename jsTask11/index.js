@@ -42,20 +42,25 @@ class textMenu { //! block menu
   constructor(btnMenuItem,textItem){
     this.btnMenuItem = btnMenuItem;
     this.textItem = textItem;
-    let btnMenu = 0
-    for (let i = 0; i < btnMenuItem.length; i++){
-      btnMenu += `<button>${btnMenuItem[i]}</button>`;
+
+    let text = document.querySelector(`#tttt`);
+    text.innerHTML = textItem[0];
+    
+    for (let i = 0; i < btnMenuItem.length; i++){  // make btn bock
+      let crBtn = document.createElement(`button`);
+      crBtn.id = `bt${i}`;
+      crBtn.innerHTML = btnMenuItem[i];
+      menu.append(crBtn);
+
+      let liBtn = document.querySelector(`#bt${i}`) // add listeners to buttons
+      liBtn.addEventListener(`click`, function(){  
+          text.innerHTML = textItem[i];
+      });      
     }
-    console.log(btnMenu);
-    textItem = `<p class="text2-content" id="html">${textItem}</p>`;
-    console.log(textItem);
-  }
-  makeMenu(){
-    return this.btnMenuItem;
   }
 }
 
-let arrItem = [`HTML`, `CSS`, `JS`];
+let arrItem = [`HTML`,`CSS`, `JS`];
 let arrText = [
   `HTML (от англ. HyperText Markup Language — «язык гипертекстовой разметки») \
     — стандартизированный язык разметки документов для просмотра веб-страниц в браузере.`,
@@ -66,10 +71,8 @@ let arrText = [
   и функциональный стили. `,
 ];
 let createItem = new textMenu(arrItem, arrText);
-console.log(createItem);
-let elemMenu = document.getElementById(`menu`).innerHTML;
-let elemBlock = document.getElementsByClassName(`conteiner`)
-//console.log(elemBlock);
+
+
 
 
 
