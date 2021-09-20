@@ -46,7 +46,7 @@ class textMenu { //! block menu
     let text = document.querySelector(`#tttt`);
     text.innerHTML = textItem[0];
     
-    for (let i = 0; i < btnMenuItem.length; i++){  // make btn bock
+    for (let i = 0; i < btnMenuItem.length; i++){  //! make btn bock
       let crBtn = document.createElement(`button`);
       crBtn.id = `bt${i}`;
       crBtn.innerHTML = btnMenuItem[i];
