@@ -58,7 +58,6 @@ class textMenu { //! block menu
       let arrBt = document.getElementsByClassName(`button-pushed`);
         for(let ii = 0; ii < arrBt.length; ii++){
           arrBt[ii].className = `none`;
-          console.log(arrBt)
         }
       }
      
@@ -68,9 +67,7 @@ class textMenu { //! block menu
           text.innerHTML = textItem[i];
           clear();
           crBtn.className = `button-pushed`;
-          
       });  
-     
     }
   }
 }
@@ -88,9 +85,108 @@ let arrText = [
 let createItem = new textMenu(arrItem, arrText);
 //console.log(createItem.clear())
 
-/*--Task № 4 select --*/
-let inpP = document.querySelector(`#inp1`);
-//console.log(inpP)
+//---------------------------Homework ---------------------------
+
+/*--Task № 1 check input --*/
+let inpP = document.getElementById(`inpH1`);
+inpP.addEventListener(`input`, check);
+function check(){
+  let str=inpP.value.replace(/[0-9]/g, "");
+  inpP.value = str;
+}
+
+/*--Task № 2 create modal window --*/
+function openWindow(){
+  let element = document.getElementById(`blockTask2`); //! define block
+  let newDiv = document.createElement(`div`); //! create new Div
+  let newH2 = document.createElement(`h2`); //! create h2 header
+  let node1 = document.createTextNode(`Hello from Modal Window!`) //! create text node for h2 header
+
+  let btnClose = document.createElement(`button`); //! create New button
+  let node2 = document.createTextNode(`Close`); //! create text node for New button
+  
+  element.appendChild(newDiv); // add new Div into Div
+  newDiv.appendChild(newH2); // add H2 header into new Div
+  newH2.appendChild(node1); // add text node into H2 header
+
+  newDiv.appendChild(btnClose); // add new button into new Div
+  btnClose.appendChild(node2); // add text node into new button
+
+  newDiv.className = `text2`; // add styles
+  newDiv.id = `newDiv`; // add id
+  btnClose.id = `btnClose`; // add id
+  btnClose.setAttribute('onclick','closeWindow()'); // add attribute
+  
+}
+
+function closeWindow(){
+  let element = document.getElementById(`blockTask2`); //! define block
+  let child = document.getElementById(`newDiv`); //! define child block to remove
+  
+  element.removeChild(child); // remove block
+}
+
+/*--Task № 3 football --*/
+let pole = document.getElementById(`pole`); //? get pole
+let boll = document.getElementById(`boll`); //? get boll
+
+function click(event){  
+  let left = event.offsetX; //? get coordinate X
+  let up = event.offsetY; //? get coordinate Y
+
+  boll.style = `left: ${left}px; top: ${up}px;` // boll move
+ // console.log(left, up)
+}
+pole.addEventListener(`click`, click); //! add listener
+console.log()
+
+/*--Task № 4 traffic lights --*/
+let trLights = {
+  grey: `background-color: grey;`,
+  green: `background-color: green;`,
+  yellow: `background-color: yellow;`,
+  red: `background-color: red;`,
+}
+
+counter = { // add counter
+  light: 1
+}
+
+document.getElementById(`lightGreen`).style = trLights.green; // default green
+
+function selectLight(){
+  counter.light++ ;
+  let green = document.getElementById(`lightGreen`); //! define light green
+  let yellow = document.getElementById(`lightYellow`); //! define light yalow
+  let red = document.getElementById(`lightRed`); //! define light red
+
+  switch (counter.light){
+    case 1:
+     green.style = trLights.green;
+     yellow.style = trLights.grey;
+     red.style = trLights.grey;
+     break;
+    case 2:
+     green.style = trLights.grey;
+     yellow.style = trLights.yellow;
+     red.style = trLights.grey;
+     break;
+    case 3:
+      green.style = trLights.grey;
+      yellow.style = trLights.grey;
+      red.style = trLights.red;
+      break;
+    case 4:
+      green.style = trLights.green;
+      yellow.style = trLights.grey;
+      red.style = trLights.grey;
+      counter.light = 1;
+      break;
+  }
+}
+
+
+
 
 
 

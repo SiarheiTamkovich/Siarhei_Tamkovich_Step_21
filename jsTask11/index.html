@@ -18,8 +18,9 @@
             font-size: 20px;
         }
         .text2 {
-            width: 40%;
-            height: 60px;
+            width: 20%;
+            height: 100px;
+            padding-left: 50px;
             background-color: rgb(245, 243, 225);
         }
         .test2-content {
@@ -39,6 +40,42 @@
         .button-pushed {
             background-color: rgb(100, 184, 100);
         } 
+        .pole {
+            width: 400px;
+            height: 200px;
+            padding: 10px 20px;
+            margin: 30px;
+            position: relative;
+            border: 5px solid black;
+            background-color: rgb(146, 219, 146);
+        }
+        .boll {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 2s;           
+            background-color: hotpink;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        .trLights {
+            width: 250px;
+            height: 80px;
+            display: flex;
+            border: 2px solid black;
+            margin-right: 10px;
+            border-radius: 10px;
+            background-color: grey;
+        }
+        .light {
+            width: 80px;
+            height: 80px;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: gray; 
+        }
     </style> 
     <body>
         <!-- Task 1 -->
@@ -81,12 +118,31 @@
         <br>
         <!--TODO Task 5 -->
         <!--TODO ---------------------Homework--------------------------------------------------->
-        <!--TODO Task 1 -->
-        <h5 style="color: red;">Homework Task 1:</h5>
+        <!-- Task 1 -->
+        <h3 style="color: red;">Homework Task 1 check numbers:</h3>
         <div class="forms1" style="width: 50%; height: 100px; background-color: rgb(243, 167, 167);">
             <h4 style="padding-top: 10px;">Enter your name (name can't contein digits): </h4>
-            <input id="inp1" type="text">
+            <input id="inpH1" type="text" value="">
         </div>
+        <!-- Task 2 -->
+        <h3 style="color: red;">Homework Task 2 modal Window:</h3>
+        <button id="btnOpen" onclick="openWindow()">Open modal</button>
+        <div id="blockTask2" style="display: flex;"></div>
+        <!--TODO Task 3 -->
+        <h3 style="color: red;">Homework Task 3 - football:</h3>
+        <div id="pole" class="pole">
+            <div id="boll" class="boll"></div>
+        </div>
+        <!--TODO Task 4 traffic lights -->
+        <h3 style="color: red;">Homework Task 4 - traffic lights:</h3>
+         <div style="display: flex;">
+            <div class="trLights" id="trLights">
+                <div class="light" id="lightGreen"></div>
+                <div class="light" id="lightYellow"></div>
+                <div class="light" id="lightRed"></div>
+            </div>
+            <button class="btnTask4" onclick="selectLight()">NEXT</button>
+         </div>
     </body>
 </html>
 
