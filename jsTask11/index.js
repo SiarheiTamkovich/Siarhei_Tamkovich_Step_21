@@ -45,17 +45,32 @@ class textMenu { //! block menu
 
     let text = document.querySelector(`#tttt`);
     text.innerHTML = textItem[0];
+    let arrBtn = [];
     
     for (let i = 0; i < btnMenuItem.length; i++){  //! make btn bock
       let crBtn = document.createElement(`button`);
       crBtn.id = `bt${i}`;
+      crBtn.className = `none`;
       crBtn.innerHTML = btnMenuItem[i];
       menu.append(crBtn);
 
+      function clear(){
+      let arrBt = document.getElementsByClassName(`button-pushed`);
+        for(let ii = 0; ii < arrBt.length; ii++){
+          arrBt[ii].className = `none`;
+          console.log(arrBt)
+        }
+      }
+     
       let liBtn = document.querySelector(`#bt${i}`) // add listeners to buttons
+      
       liBtn.addEventListener(`click`, function(){  
           text.innerHTML = textItem[i];
-      });      
+          clear();
+          crBtn.className = `button-pushed`;
+          
+      });  
+     
     }
   }
 }
@@ -71,10 +86,11 @@ let arrText = [
   и функциональный стили. `,
 ];
 let createItem = new textMenu(arrItem, arrText);
+//console.log(createItem.clear())
 
 /*--Task № 4 select --*/
 let inpP = document.querySelector(`#inp1`);
-console.log(inpP)
+//console.log(inpP)
 
 
 
