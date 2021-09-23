@@ -55,7 +55,7 @@ let colour3 = document.getElementById(`col3`);
 let textBl = document.getElementById(`taxt`)
 
 
-console.log(textBl.style.color)
+//console.log(textBl.style.color)
 function getColour1(){
  let col = colour1.style.backgroundColor;
  textBl.style.color = col;
@@ -74,6 +74,33 @@ function getColour3(){
 colour1.addEventListener(`click`, getColour1);
 colour2.addEventListener(`click`, getColour2);
 colour3.addEventListener(`click`, getColour3);
+
+/* --Task № 4  --*/
+let textB4 = document.getElementById(`form4`);
+
+function addComment(){
+  let getInput = document.getElementById(`inp4`);
+  let getText = document.getElementById(`textarea4`);
+
+  let newComment = document.createElement(`p2`);
+  newComment.innerHTML = getText.value;
+
+  let date = document.createElement(`h3`);
+  let dateNow = new Date;
+  date.innerHTML = dateNow;
+  
+  let newUser = document.createElement(`h2`);
+  newUser.innerHTML = getInput.value;
+  
+  let theFirstChild = textB4.firstChild;
+  textB4.insertBefore(newUser, theFirstChild);
+  textB4.insertBefore(date, theFirstChild);
+  textB4.insertBefore(newComment, theFirstChild);
+  
+
+  console.log(dateNow);
+}
+
 
 
 
