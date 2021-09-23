@@ -76,6 +76,35 @@
             border-radius: 50%;
             background-color: gray; 
         }
+        .blockTask6 {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(233, 217, 153);
+            overflow: scroll;
+            display: flex;
+            position: relative;
+        }
+        .btn1Task6 {
+            width: 80px;
+            height: 20px;
+            margin: 50px;
+        }
+        .btn2Task6 {
+            width: 80px;
+            height: 20px;
+            margin: 5px;
+        }
+        .tooltip {
+         position: fixed;
+         padding: 10px 20px;
+         border: 1px solid #b3c9ce;
+         border-radius: 4px;
+         text-align: center;
+         font: italic 14px/1.3 sans-serif;
+         color: #333;
+         background: #fff;
+         box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+        }
     </style> 
     <body>
         <!-- Task 1 -->
@@ -133,7 +162,7 @@
         <div id="pole" class="pole">
             <div id="boll" class="boll"></div>
         </div>
-        <!--TODO Task 4 traffic lights -->
+        <!-- Task 4 traffic lights -->
         <h3 style="color: red;">Homework Task 4 - traffic lights:</h3>
          <div style="display: flex;">
             <div class="trLights" id="trLights">
@@ -143,6 +172,31 @@
             </div>
             <button class="btnTask4" onclick="selectLight()">NEXT</button>
          </div>
+        <!--TODO Task 5 books list -->
+        <h3 style="color: red;">Homework Task 5 - books list</h3>
+        <div class="contentblocktask5 text">
+            <ol id="listBook">
+                <li id="book" class="book">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Quam consequuntur sequi iure reiciendis perspiciatis libero </li>
+                <li id="book" class="book">Quibusdam architecto, quasi quo accusantium aliquid velit repudiandae provident, 
+                    maiores officiis eius magni. Aliquam iure ipsam consectetur minima beatae explicabo 
+                    ab corrupti.</li>
+                <li id="book" class="book">Debitis non mollitia nisi vero error quae delectus, doloremque praesentium molestiae.
+                    Error voluptatibus nobis alias optio exercitationem corporis, dolorum cum repudiandae 
+                    illo!</li>
+                <li id="book" class="book">Ad recusandae saepe similique consequatur, perspiciatis quaerat accusamus ipsum nam iusto,
+                    porro, temporibus magnam quis blanditiis aperiam accusantium asperiores praesentium odio. 
+                    Porro.</li>
+                <li id="book" class="book">Veniam cum ad impedit rem expedita nemo libero quas quam corporis eius quasi laudantium 
+                    dicta, maxime tempore adipisci accusamus quo non provident!</li>
+            </ol>
+        </div>
+        <!--TODO Task 6 Tooltips -->
+        <h3 style="color: red;">Homework Task 6 - Tooltips</h3>
+        <div class="blockTask6" id="blockTask6">
+            <button class="btn1Task6" data-tooltip="Tool tip1">Button 1</button>
+            <button class="btn2Task6" data-tooltip="Tool tip2">Button 2</button>
+        </div>
     </body>
 </html>
 

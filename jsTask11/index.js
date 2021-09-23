@@ -138,7 +138,6 @@ function click(event){
  // console.log(left, up)
 }
 pole.addEventListener(`click`, click); //! add listener
-console.log()
 
 /*--Task № 4 traffic lights --*/
 let trLights = {
@@ -185,10 +184,53 @@ function selectLight(){
   }
 }
 
+/*--Task № 5 select book --*/
+let arrBooks = document.getElementsByClassName(`book`); //! select book by class Name
+for(let i = 0; i < arrBooks.length; i++){ // add id
+   arrBooks[i].id = arrBooks[i].id + i 
+}
 
+let listBook = document.querySelector(`#listBook`); //! get <ol>
+listBook.addEventListener(`click`, function(select){ // add listener
+  for(let i = 0; i < arrBooks.length; i++){ // clear color
+    arrBooks[i].style = ``;
+  }
 
+  let id = select.target.id; // get id
+  document.querySelector(`#${id}`).style = "background-color: coral" // set color
+});
 
+/*--Task № 6 tooltip --*/
+let tooltipElem = 0;
 
-
-
+document.onmouseover = function(event) {
+ let target = event.target; // get object
+ let tooltipText = target.dataset.tooltip // get tooltip text from attribute
+ if (!tooltipText) return; // select element by attribute
   
+ tooltipElem = document.createElement('div'); // create div tip
+ tooltipElem.className = 'tooltip'; // add class
+ tooltipElem.innerHTML = tooltipText; // add text
+ let blockTask2 = document.querySelector(`#blockTask6`) // get block div
+ blockTask2.appendChild(tooltipElem); // add tip into DOM
+ 
+ let coordsBlock = blockTask2.getBoundingClientRect(); // get coordinate block
+ let coords = target.getBoundingClientRect(); // get coordinate button
+ let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2; // left
+ let differTop = coords.top - coordsBlock.top; // difference between coordinates
+ if (left < 0) left = 0; // check left position 
+ let top = coords.top - tooltipElem.offsetHeight - 5; // top
+ if (differTop < 30) { // check top position
+   top = coords.top + target.offsetHeight + 5; // to down
+  } 
+ tooltipElem.style.left = left + 'px'; // set left position 
+ tooltipElem.style.top = top + 'px'; // set top position
+}
+
+document.onmouseout = function(e) { // remove tips
+  if (tooltipElem) {
+    tooltipElem.remove();
+    tooltipElem = null;
+  }
+}
+
