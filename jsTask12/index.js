@@ -96,11 +96,15 @@ function addComment(){
   textB4.insertBefore(newUser, theFirstChild);
   textB4.insertBefore(date, theFirstChild);
   textB4.insertBefore(newComment, theFirstChild);
-  
-
-  console.log(dateNow);
 }
 
+/* -----------------------------HOME WORK  -----------*/
+/*--TODO Task № 1  --*/
+let list = document.getElementById(`list`);
+let li = list.children;
+for (let i = 0; i < li.length; i++){
+  console.log(li[i].innerHTML);
+}
 
 
 
