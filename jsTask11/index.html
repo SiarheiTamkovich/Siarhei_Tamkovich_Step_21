@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsTask11 - Event handling </title>
+    <script src="index.js" defer></script>
+</head>
+    <style>
+        .menu-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 10%;
+            height: 60px;
+            background-color: rgb(131, 216, 216);
+            font-size: 20px;
+        }
+        .text2 {
+            width: 20%;
+            height: 100px;
+            padding-left: 50px;
+            background-color: rgb(245, 243, 225);
+        }
+        .test2-content {
+        animation-duration: 4s;
+        animation-name: slider;
+        }
+        @keyframes slider {
+            from {
+                margin-left: 100%;
+                 width: 300%;
+            }
+             to {
+               margin-left: 0%;
+               width: 100%;
+            }
+        }  
+        .button-pushed {
+            background-color: rgb(100, 184, 100);
+        } 
+        .pole {
+            width: 400px;
+            height: 200px;
+            padding: 10px 20px;
+            margin: 30px;
+            position: relative;
+            border: 5px solid black;
+            background-color: rgb(146, 219, 146);
+        }
+        .boll {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 2s;           
+            background-color: hotpink;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        .trLights {
+            width: 250px;
+            height: 80px;
+            display: flex;
+            border: 2px solid black;
+            margin-right: 10px;
+            border-radius: 10px;
+            background-color: grey;
+        }
+        .light {
+            width: 80px;
+            height: 80px;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: gray; 
+        }
+        .blockTask6 {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(233, 217, 153);
+            overflow: scroll;
+            display: flex;
+            position: relative;
+        }
+        .btn1Task6 {
+            width: 80px;
+            height: 20px;
+            margin: 50px;
+        }
+        .btn2Task6 {
+            width: 80px;
+            height: 20px;
+            margin: 5px;
+        }
+        .tooltip {
+         position: fixed;
+         padding: 10px 20px;
+         border: 1px solid #b3c9ce;
+         border-radius: 4px;
+         text-align: center;
+         font: italic 14px/1.3 sans-serif;
+         color: #333;
+         background: #fff;
+         box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+        }
+    </style> 
+    <body>
+        <!-- Task 1 -->
+        <h5 style="color: red;">Classwork Task 1:</h5>
+        <div style="background-color: rgb(243, 232, 217); 
+                    width: 50%;
+                    height: 120px;">
+            <h4> Random number:</h4>
+            <h1 id="num">00</h1>
+            <input class="btn" type="button" value="Generate random number"/>
+            <br>
+        </div>
+        <!-- Task 2 -->
+        <h5 style="color: red;">Classwork Task 2</h5>
+        <div id="container" style="background-color: rgb(216, 248, 252); 
+                                   width: 50%;
+                                   height: 120px;">
+            <h3>X=<span id="x"></span></h3>
+            <h3>Y=<span id="y"></span></h3>
+            <h4 id="click"></h4>
+        </div>
+        <!-- Task 3 -->
+        <h5 style="color: red;">Classwork Task 3:</h5>
+        <div style="background-color: rgb(208, 233, 176); 
+                    width: 50%;
+                    height: 120px;">
+            <input id="btn2" type="button" value="Hide / show text"/>
+            <p id="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+               Consequatur illum magni tempora dolore facere veritatis a 
+               quaerat id. Saepe necessitatibus odit voluptates quis ipsam, 
+               error autem vero dolores eligendi dicta.
+            </p>                                
+        </div>
+        <!--- Task 4 -->
+        <h5 style="color: red;">Classwork Task 4:</h5>
+        <div class="conteiner" style="display: flex;"> 
+            <div class="menu-button" id="menu"></div>
+            <div class="text2" id="tttt"></div>    
+        </div>
+        <br>
+        <!--TODO Task 5 -->
+        <!--TODO ---------------------Homework--------------------------------------------------->
+        <!-- Task 1 -->
+        <h3 style="color: red;">Homework Task 1 check numbers:</h3>
+        <div class="forms1" style="width: 50%; height: 100px; background-color: rgb(243, 167, 167);">
+            <h4 style="padding-top: 10px;">Enter your name (name can't contein digits): </h4>
+            <input id="inpH1" type="text" value="">
+        </div>
+        <!-- Task 2 -->
+        <h3 style="color: red;">Homework Task 2 modal Window:</h3>
+        <button id="btnOpen" onclick="openWindow()">Open modal</button>
+        <div id="blockTask2" style="display: flex;"></div>
+        <!--TODO Task 3 -->
+        <h3 style="color: red;">Homework Task 3 - football:</h3>
+        <div id="pole" class="pole">
+            <div id="boll" class="boll"></div>
+        </div>
+        <!-- Task 4 traffic lights -->
+        <h3 style="color: red;">Homework Task 4 - traffic lights:</h3>
+         <div style="display: flex;">
+            <div class="trLights" id="trLights">
+                <div class="light" id="lightGreen"></div>
+                <div class="light" id="lightYellow"></div>
+                <div class="light" id="lightRed"></div>
+            </div>
+            <button class="btnTask4" onclick="selectLight()">NEXT</button>
+         </div>
+        <!--TODO Task 5 books list -->
+        <h3 style="color: red;">Homework Task 5 - books list</h3>
+        <div class="contentblocktask5 text">
+            <ol id="listBook">
+                <li id="book" class="book">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Quam consequuntur sequi iure reiciendis perspiciatis libero </li>
+                <li id="book" class="book">Quibusdam architecto, quasi quo accusantium aliquid velit repudiandae provident, 
+                    maiores officiis eius magni. Aliquam iure ipsam consectetur minima beatae explicabo 
+                    ab corrupti.</li>
+                <li id="book" class="book">Debitis non mollitia nisi vero error quae delectus, doloremque praesentium molestiae.
+                    Error voluptatibus nobis alias optio exercitationem corporis, dolorum cum repudiandae 
+                    illo!</li>
+                <li id="book" class="book">Ad recusandae saepe similique consequatur, perspiciatis quaerat accusamus ipsum nam iusto,
+                    porro, temporibus magnam quis blanditiis aperiam accusantium asperiores praesentium odio. 
+                    Porro.</li>
+                <li id="book" class="book">Veniam cum ad impedit rem expedita nemo libero quas quam corporis eius quasi laudantium 
+                    dicta, maxime tempore adipisci accusamus quo non provident!</li>
+            </ol>
+        </div>
+        <!--TODO Task 6 Tooltips -->
+        <h3 style="color: red;">Homework Task 6 - Tooltips</h3>
+        <div class="blockTask6" id="blockTask6">
+            <button class="btn1Task6" data-tooltip="Tool tip1">Button 1</button>
+            <button class="btn2Task6" data-tooltip="Tool tip2">Button 2</button>
+        </div>
+    </body>
+</html>
+
+
