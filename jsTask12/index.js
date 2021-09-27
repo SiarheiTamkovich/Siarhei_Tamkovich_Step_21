@@ -110,7 +110,7 @@
 //   }
 // }
 
-/*--TODO Task № 2  --*/
+/*--TODO Task № 2 menu accordion --*
 let menu = document.getElementsByClassName(`menu`);
 let item = document.getElementsByTagName(`li`);
 
@@ -124,6 +124,10 @@ function openMenu(obj) {
 for (let i = 0; i < menu.length; i++){
   menu.addEventListener(`click`, openMenu);
 }
+
+/*--TODO Task № 3 marc text  --*/
+
+let  
 
 
 
