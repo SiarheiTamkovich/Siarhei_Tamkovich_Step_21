@@ -1,0 +1,25 @@
+body {
+    height: 100vh;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnSignIn {
+    width: 100%;
+}
+
+.container2 {
+    width: 50%;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
