@@ -127,7 +127,39 @@ for (let i = 0; i < menu.length; i++){
 
 /*--TODO Task № 3 marc text  --*/
 
-let  
+let lastLi;
+document.addEventListener('click', e => { // select li
+  let li = e.target;   
+  if (e.ctrlKey){                    // if Ctrl press
+    li.classList.toggle('selected'); // add class selected  
+    lastLi = li;  
+  } else if (e.shiftKey) {  // if Shift press
+    if (lastLi.id <= li.id) {
+      for (let i = lastLi.id; i <= li.id; i++){
+        let elem = document.getElementById(`${i}`);
+        elem.className = `selected`
+      }
+    } else {
+      for (let i = lastLi.id; i >= li.id; i--){
+        let elem = document.getElementById(`${i}`);
+        elem.className = `selected`
+      }
+    }
+  } else {
+    removeSelect();
+    li.classList.toggle('selected'); // add class selected 
+    lastLi = li;     
+  }
+});
+
+function removeSelect(){
+  let selected = books.querySelectorAll('.selected');
+    for(let elem of selected) {
+    elem.classList.remove('selected')
+  }
+}
+
+
 
 
 
