@@ -12,14 +12,34 @@ body {
     flex-direction: column;
 }
 
-.btnSignIn {
-    width: 100%;
+.container2 {
+    width: 400px;
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-areas: "email   login"
+                         "pass    pasrep"
+                         "btnsig  btnsig";
+    gap: 10px 5px; 
 }
 
-.container2 {
-    width: 50%;
-    height: 120px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+.email {
+    grid-area: email; 
 }
+
+.login {
+    grid-area: login;
+}
+
+.passw {
+    grid-area: pass;
+}
+
+.repeat-password {
+    grid-area: pasrep;
+}
+
+.btn-sign {
+    width: 80%;
+    grid-area: btnsig;
+}
+
