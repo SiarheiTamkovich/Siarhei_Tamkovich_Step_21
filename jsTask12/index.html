@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>jsTask12 - Event handling </title>
     <script src="index.js" defer></script>
 </head>
@@ -12,18 +14,84 @@
              h2 {
                  color: red;
              }
+
+             ul {
+                 list-style: none;
+             }
+
+             ol {
+                 margin-left: 0%;
+             }
+
+             li,
              .booklist {
-                 padding-left: 20px;
-                 cursor: pointer;
+                margin-left: 20px;
+                font-weight: normal;
              }
 
              .selected {
                  background-color: orange;
              }
 
+             .hidden {
+                top: -9999px;
+                left: -9999px;
+                position: fixed;
+             }
+
+             .list,
+             .material-icons {
+                cursor: pointer;
+             }
+             .list:hover {
+                 font-weight: bold;
+             }
+
+             .textarea {
+                width: 100%;
+             }
+
+             .header-tabl {
+                 width: 80%;
+                 display: flex;
+                 justify-content: space-around;
+                 background-color: rgb(250, 217, 217) ;
+                 border: gray;
+                 font-weight: bold;
+             }
+
+             .head {
+                 border: 2px solid gray;
+                 cursor: pointer;
+             }
+
+             .conteiner5 {
+                 width: 80%;
+                 display: grid;
+                 justify-items: center;
+                 grid-template-columns: repeat(4, 1fr);
+                 grid-template-rows: repeat(4, 1fr);
+                 grid-auto-flow: dense;
+                 background-color: rgb(250, 217, 217) ;
+                 grid-auto-flow: column;
+                 border: 1px solid black
+             }
+
+             .conteiner6 {
+                 height: 200px;
+                 width: 300px;
+                 display: flex;
+                 flex-direction: column;
+                 justify-content: space-between;
+                 align-items: flex-end;
+                 background-color: khaki;
+                 border: 1px solid black;
+             }
+             
+
         </style>
 
-    <!--
+    
         <h1>Classwork jsTask 12</h1>
         <h2 style="color: red;">Task 1</h2>
         <h1 id=block>0</h1>
@@ -74,21 +142,21 @@
              <li>/local/path</li>
             </ul>
         </div>
-    --
+    
         <h2 style="color: red;">Task 2 tree </h2>
         <div>This PC
-            <ul class="menu" id="menu1">&#9733; Local Disk (C:)
-                <li id="menu-item">&#9734; Program Files</li>
-                <li id="menu-item">&#9734; Users</li>
-                <li id="menu-item">&#9734; Windows</li>
+            <ul class="list" id="menu1">&#9733; Local Disk (C:)
+                <li>&#9734; Program Files</li>
+                <li>&#9734; Users</li>
+                <li>&#9734; Windows</li>
             </ul>
-            <ul class="menu" id="menu2">&#9733; Local Disk (D:)
-                <li  id="menu2-item">&#9734; New Folder 1</li>
-                <li  id="menu2-item">&#9734; New Folder 2</li>
-                <li  id="menu2-item">&#9734; New Folder 3</li>
+            <ul class="list" id="menu2">&#9733; Local Disk (D:)
+                <li>&#9734; New Folder 1</li>
+                <li>&#9734; New Folder 2</li>
+                <li>&#9734; New Folder 3</li>
             </ul>
         </div>
-    -->
+    
     <h2 id="h2">Task 3 mark book in list</h2>
     <ol class="booklist" id="books"> Список книг обязательных к прочтению
         <li id="1">Жизнь взаймы - Эрих Мария Ремарк </li>
@@ -99,7 +167,41 @@
         <li id="6">Лолита - Владимир Набоков</li>
         <li id="7">Заводной апельсин - Энтони Берджесс</li>
     </ol>
-
+    <h2 id="h2">Task 4 edit text</h2>
+    <div class="conteiner4" id="cont4">
+        <div>
+            pres Ctrl+E for edit 
+            press Ctrl+S for save
+        </div>
+        <br>
+        <div id=text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio iure dolore.
+        </div>
+        <input id="textarea" type="text">
+    </div>
+        <h2 id="h2">Task 5 sort table </h2>
+        <div class="header-tabl" id="order">
+            <p id="firstname" class="head">Firstname</p>
+            <p id="lastname" class="head">Lastname</p>
+            <p id="age" class="head">Age</p>
+            <p id="company" class="head">Company</p>
+        </div>
+        <div class="conteiner5" id="cont5">  
+            <p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p>
+        </div>
+    
+        <h2 id="h2">Task 6 push block </h2>
+        <div class="conteiner6" id="cont6">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis iste officia atque soluta, dicta voluptate magnam recusandae laborum ex, molestiae eligendi maxime eum, adipisci aliquam quia nihil explicabo culpa maiores?</p>
+            <div>
+                <p><span class="material-icons" id="tracking">
+                    change_history
+                    </span></p>      
+            </div>
+        </div>
     </body>
 </html>
 
