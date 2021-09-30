@@ -1,4 +1,11 @@
-//--jsTask15 Event listener forms ---
+//--jsTask15 Todo list ---
+const arrTip = [{text: `test text`, checked: `yes`,}];
 
-/* --Task № 1  --*/
+
+function addItem(){
+
+}
+
+console.log(tiptxt.value)
+console.log()
 
