@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jsTask13 - Event handling </title>
     <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
     <body>
+        <!--
         <style>
             .pole4 {
                 height: 20px;
@@ -40,9 +42,40 @@
             <button class="btn4minus" onclick="addDigit()">-</button>
             <button class="btn4r" onclick="result()">=</button>
             <button class="btn4clear" onclick="clearCalc()">C</button>
-
         </div>
-
+    -->
+        <h3>Task 1 progress bar</h3>
+        <div class="conteiner">
+         <input type="range" value="40" 
+                min="0" max="100"
+                step="1" class="progress">
+        </div>
+        <br>
+        <h3>Task 2 slider pics</h3>
+        <div class="slider">
+            <button onclick="left()">&lArr;</button>
+            <div class="slides">
+                <img  id="pic" src="https://" alt="icon">
+            </div>
+            <button onclick="right()">&rArr;</button>
+        </div>
+        <h3>Task 3 text blocks</h3>
+        <div class="conteiner3" id="textblock">
+            <div>
+                <div>
+                    <h4> Lorem ipsum dolor sit.</h4>
+                    <p id="p1">
+                            Consectetur adipisicing elit. Doloremque neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h4> Amet consectetur adipisicing</h4>
+                <p class="">
+                    Aliquid, cumque vero perspiciatis necessitatibus nihil asperiores ut laborum reiciendis rem! Deserunt explicabo sit incidunt, ratione ipsam libero eos pariatur. Sapiente, totam?
+                </p>
+            </div>
+        </div>
     </body>
 </html>
 
