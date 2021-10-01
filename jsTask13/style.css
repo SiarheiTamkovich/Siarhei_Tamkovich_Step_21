@@ -49,8 +49,7 @@ h3 {
 }
 
 .conteiner3 {
-    width: 400px;
-    height: 200px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     background-color: rgb(187, 243, 237);
