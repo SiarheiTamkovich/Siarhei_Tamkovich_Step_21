@@ -64,6 +64,11 @@ h4 {
     cursor: pointer;
 }
 
+h5 {
+    margin: 0;
+    text-align: center;
+}
+
 p {
     margin: 0;
 }
@@ -76,4 +81,23 @@ ul,
 li {
     padding: 0;
     list-style-type: none; 
+}
+
+.conteiner4 {
+    width: 300px;
+    height: 200px;
+    padding: 10px 20px;
+    margin: 30px;
+    background-color: rgb(247, 245, 159);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: scroll
+}
+
+.newsblock {
+    position: absolute;
+    top: 0;
+    left: 0;
 }

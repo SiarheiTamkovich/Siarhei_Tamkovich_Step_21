@@ -86,5 +86,38 @@ textblock.addEventListener(`click`, e => {
 })
 
 /* --Task № 4  blocks --*/
+const arrNews = [
+  {
+    head: `Lorem ipsum dolor sit`,
+    news: ` Consectetur adipisicing elit. Doloremque neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.
+            Consectetur adipisicing elit. Doloremque neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.
+            Consectetur adipisicing elit. Doloremque neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.`
+  },
+  {
+    head: `Ipsum dolor sit`,
+    news: `Adipisicing elit. Doloremque neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.`
+  },
+  {
+    head: `Doloremque neque`,
+    news: `Neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.`
+  },
+  {
+    head: `Eveniet voluptatibus `,
+    news: `Eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.`
+  },
+];
+
+function addNews() {
+
+}
+
+ cont4.childNodes[1].innerHTML = `
+  <h5> ${arrNews[0].head}</h5><br>
+  <p> ${arrNews[0].news}</p>`;
+
+cont4.addEventListener(`scroll`, e => {
+ 
+  console.log(e.target.childNodes[1].innerHTML)
+})
 
 
