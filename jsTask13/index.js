@@ -115,9 +115,17 @@ function addNews() {
   <h5> ${arrNews[0].head}</h5><br>
   <p> ${arrNews[0].news}</p>`;
 
-cont4.addEventListener(`scroll`, e => {
- 
-  console.log(e.target.childNodes[1].innerHTML)
+  function timeMsg(){
+   let t=setTimeout("alertMsg()",3000);
+  }
+
+  function alertMsg(){
+  console.log("1");
+  }
+     
+cont4.addEventListener(`scroll`, e => { 
+ timeMsg() 
+  
 })
 
 
