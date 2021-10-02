@@ -66,6 +66,7 @@ h4 {
 
 h5 {
     margin: 0;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -84,8 +85,8 @@ li {
 }
 
 .conteiner4 {
-    width: 300px;
-    height: 200px;
+    width: 500px;
+    height: 130px;
     padding: 10px 20px;
     margin: 30px;
     background-color: rgb(247, 245, 159);
@@ -93,11 +94,26 @@ li {
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: scroll
+    overflow-y: scroll
 }
 
 .newsblock {
+    margin-top: 20px;
+    margin-bottom: 10px;
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 1;
+    transition: 1s;
 }
+
+.news-animation {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .news-animation.news-show {
+    opacity: 1;
+    transition: all 1.5s;
+    transform: translateY(0%);
+  }

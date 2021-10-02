@@ -90,7 +90,6 @@ const arrNews = [
   {
     head: `Lorem ipsum dolor sit`,
     news: ` Consectetur adipisicing elit. Doloremque neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.
-            Consectetur adipisicing elit. Doloremque neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.
             Consectetur adipisicing elit. Doloremque neque eveniet voluptatibus similique fuga, animi a placeat quibusdam fugiat consequuntur molestiae explicabo ullam repudiandae, corporis repellat id nemo ab velit.`
   },
   {
@@ -107,25 +106,77 @@ const arrNews = [
   },
 ];
 
+let n = 0;
 function addNews() {
+  cont4.childNodes[1].innerHTML += `
+  <h5> ${arrNews[n].head}</h5><br>
+  <p id="news" class="news-animation"> ${arrNews[0].news}</p>`;
+  cont4.childNodes[1].classList.add('news-animation.news-show');
+  let elem = document.querySelector(`.news-animation`);
+  sleep(500)
+  elem.className = (`news-animation.news-show`);
+console.log(elem.className)
+//console.log(n);
+  if (n < 3) {
+    n++ ;
+  } else {
+    n = 0;
+    return n;
+  }
+}
+  
+addNews()
 
+cont4.addEventListener(`scroll`, debounce(checkSlide));
+
+function checkSlide(e){
+ // console.count(e);
+ // console.log(window.scrollY)
+ // console.log(window.innerHeight)
+  slideInAt = (window.scrollY + window.innerHeight)
+ // console.log(slideInAt)
+  if (slideInAt > 900) addNews();
 }
 
- cont4.childNodes[1].innerHTML = `
-  <h5> ${arrNews[0].head}</h5><br>
-  <p> ${arrNews[0].news}</p>`;
+function debounce(func, wait = 100, immediate = true) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
 
-  function timeMsg(){
-   let t=setTimeout("alertMsg()",3000);
-  }
+function onEntry(entry) {
+  entry.forEach(change => {
+    if (change.isIntersecting) {
+     change.target.classList.add('news-show');
+    }
+  });
+}
 
-  function alertMsg(){
-  console.log("1");
-  }
-     
-cont4.addEventListener(`scroll`, e => { 
- timeMsg() 
-  
-})
+let options = {
+  threshold: [0.5] 
+};
+let observer = new IntersectionObserver(onEntry, options);
+let elements = document.querySelectorAll('.news-animation');
 
+for (let elm of elements) {
+  observer.observe(elm);
+}
 
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+/* --Task № 5 calculator --*/
