@@ -11,7 +11,6 @@
 
 .main {
     width: 640px;
-    height: 400px;
     background-color: rgb(72, 156, 193);
     display: flex;
     justify-content: center;
@@ -19,8 +18,7 @@
 
 .list {
     width: 500px;
-    height: 240px;
-    margin-top: 25px;
+    margin: 25px 0px;
     background-color: rgb(252, 252, 252);
     display: flex;
     flex-direction: column;
@@ -33,10 +31,11 @@
     height: 43px;
     margin-bottom: 8px;
     border: 2px solid rgb(162, 152, 116);
-    font-size: 18px;
+    font-size: 22px;
     font-family: Arial, Helvetica ;
     border-radius: 2px;
     color:  rgb(72, 156, 193);
+    font-style: italic;
     text-align: center;
 
 }
@@ -61,14 +60,20 @@
 }
 
 .item-check {
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
+    background: none;
     border: 2px solid rgb(140, 144, 147);
 }
 
 .tip-item_text {
+    box-sizing: border-box;
     width: 370px;
     height: 34px;
+    padding: 4px 10px;
+    font-size: 20px;
+    color: rgb(72, 156, 193);
+    border: none;
 }
 
 .item-btn_edit {
@@ -97,7 +102,8 @@
     justify-content: space-between;
     border-bottom: 1px solid rgb(221, 239, 249);
     border-top: 1px solid rgb(221, 239, 249);
-    margin-bottom: 0;
+    margin: 5px 0 5px 0;
+
 }
 
 .progress-bar {
@@ -115,5 +121,15 @@
     border: none;
     font-size: 14px;
     cursor: pointer;
+}
+
+.crossed {
+    text-decoration: line-through;
+}
+
+.edit {
+    border: 2px solid rgb(162, 152, 116);
+    color: rgb(235, 235, 235);
+    color: #000;
 }
 
