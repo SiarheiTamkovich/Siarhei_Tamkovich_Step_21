@@ -19,8 +19,16 @@
           </div>
           <div class="tipContainer"></div>
           <div class="futter">
-            <div class="progress-bar"></div>
-            <button class="remove-cheked">Remove checked &#10006</button>
+            <div class="progress-bar">
+              <div class="progress-bar_text">
+                <span class="bar-done" id="done"></span>
+                <span>of </span>
+                <span class="bar-all" id="all"></span>
+                <span>tasks done</span> 
+              </div>
+              <div class="progress-bar_bg" id="barwidth" style="width: 0;"></div>
+            </div>
+            <button class="remove-cheked" onclick="interfaceToDo.delateItemsAll()">Remove checked &#10006</button>
           </div>
         </div>
       </div>

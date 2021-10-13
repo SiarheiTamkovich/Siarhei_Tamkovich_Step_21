@@ -7,9 +7,30 @@ class BdToDoList {
         this.bdTips = bdTips;
     }
     addItem(item){     
-        this.bdTips.push(item);
+        this.bdTips.unshift(item);
     }
-
+    saveToLocalStorage(){
+        localStorage.setItem("bdTips", JSON.stringify(this.bdTips));
+    }
+    loadFromLocalStorage(){  
+        if (localStorage.getItem("bdTips")) {
+            this.bdTips = JSON.parse(localStorage.getItem("bdTips"));
+        }
+    }
+    get countAllItem(){
+      let arrValue = this.bdTips.map(e => e.isDeleted);
+      let countFalse = arrValue.filter(function(x) {return x == false}).length
+      return countFalse;
+    }
+    get countDoneItem(){
+        let countCheckedAndNoDeleted = 0;
+        for (let i = 0; i < this.bdTips.length; i++){
+            if (this.bdTips[i].isChecked == `checked` && this.bdTips[i].isDeleted == false){
+                countCheckedAndNoDeleted++;
+            }
+        }
+    return countCheckedAndNoDeleted;
+    }
 }
 const bdToDoList = new BdToDoList([]);
 
@@ -24,59 +45,99 @@ class TodoTip {
 }
 
 // some tips for tests
-bdToDoList.addItem(new TodoTip (`tip00`, `Buy a new car`, false, false));
-bdToDoList.addItem(new TodoTip (`tip00`, `Write a program "ToDoList"`, false, false));
+bdToDoList.addItem(new TodoTip (`tip00`, `Buy a new car`, ``, false));
+bdToDoList.addItem(new TodoTip (`tip00`, `Write a program &#34;ToDoList&#34;`, ``, false));
 
 // The main interface block
 class InterfaceToDo {
-    
     constructor (tipContainer){
         this.tipContainer = tipContainer;
-    }
-    
+    } 
     loadNotesToDocument(bdToDoList){ 
+           
+        bdToDoList.loadFromLocalStorage();
+        interfaceToDo.progressUpdate();
+ 
         for (let i = 0; i < bdToDoList.bdTips.length; i++){
-            let tip = document.createElement(`div`);
-            this.tipContainer.appendChild(tip);
-            tip.className = `tip-item`;
-            tip.id = `tip${i}`
-            tip.innerHTML = `<input class="item-check" type="checkbox" id="ch${i}" onclick="interfaceToDo.checkItem()">
-            <input class="tip-item_text" type="text" value="${bdToDoList.bdTips[i].text}" readonly id="txt${i}" onkeypress="saveEditText()">
-            <button class="item-btn_edit" id="btnedit${i}" onclick="editItem()">&#10000;</button>
-            <button class="item-btn_delete" id="btndelete${i}">&#10006;</button>`; 
+            if (bdToDoList.bdTips[i].isDeleted != true){
+                let tip = document.createElement(`div`);
+                this.tipContainer.appendChild(tip);
+                tip.className = `tip-item`;
+                tip.id = `tip${i}`
+                tip.innerHTML = `<input class="item-check" type="checkbox" id="ch${i}" onclick="interfaceToDo.checkItem()" ${bdToDoList.bdTips[i].isChecked}>
+                <input class="tip-item_text" type="text" value="${bdToDoList.bdTips[i].text}" readonly id="txt${i}" onkeypress="saveEditText()">
+                <button class="item-btn_edit" id="btnedit${i}" onclick="interfaceToDo.editItem()">&#9997;</button>
+                <button class="item-btn_delete" id="btndelete${i}" onclick="interfaceToDo.delateItem()">&#10006;</button>`;
+                if (bdToDoList.bdTips[i].isChecked === `checked`) { // add crossed line to text
+                    tip.children[1].classList.toggle(`crossed`);
+                }
+            }
         }
     }
-
     addNewItem() { 
-       bdToDoList.addItem(new TodoTip (`tip00`, newTipTxt.value, false, false)); // add tips to data base
-       while (this.tipContainer.firstChild) { // clear container
-        this.tipContainer.removeChild(this.tipContainer.firstChild); 
-        }
-       this.loadNotesToDocument(bdToDoList); // load data to container
+       bdToDoList.addItem(new TodoTip (`tip00`, newTipTxt.value, ``, false)); // add tips to data base
+       bdToDoList.saveToLocalStorage();
+       this.clearCont(); // clear
+       this.loadNotesToDocument(bdToDoList); // load data to container  
+       newTipTxt.value = ``; // clear input field
     }
-
     checkItem() {
-    //   console.log(event.target.parentNode.childNodes[2])
-        event.target.parentNode.childNodes[2].classList.toggle("crossed");
-        
+        this.clearCont(); // clear
+        let nRec = (event.target.id).replace(/[^0-9]/g, '');
+        if (bdToDoList.bdTips[nRec].isChecked === `checked`) { // check on double click
+            bdToDoList.bdTips[nRec].isChecked = ``;
+        } else {
+            bdToDoList.bdTips[nRec].isChecked = `checked`;
+        }
+        bdToDoList.saveToLocalStorage(); // save
+        this.loadNotesToDocument(bdToDoList); // load
     }
-
     editItem() {
-    //  console.log(event.target.parentNode.childNodes);
         event.target.parentNode.childNodes[2].removeAttribute(`readonly`);
         event.target.parentNode.childNodes[2].classList.toggle("edit");
     }
-
+    delateItem() {
+        this.clearCont(); // clear
+        let nRec = (event.target.id).replace(/[^0-9]/g, '');
+        if (confirm(`Are you sure you need to delete the note?`)){
+         bdToDoList.bdTips[nRec].isDeleted = true // set object property on deleted
+        }
+        bdToDoList.saveToLocalStorage(); // save
+        this.loadNotesToDocument(bdToDoList); // load
+    }
+    delateItemsAll() {
+        if (!confirm(`Are you sure you need to delete all the notes?`)) return;
+        for (let i = 0; i < bdToDoList.bdTips.length; i++){
+            if ( bdToDoList.bdTips[i].isChecked === `checked`){ // check checked items
+                this.clearCont(); // clear
+                bdToDoList.bdTips[i].isDeleted = true; 
+                bdToDoList.saveToLocalStorage(); // save
+                this.loadNotesToDocument(bdToDoList); // load
+            }
+        }
+    }
     saveEditText() {
-        event.target.parentNode.childNodes[2].classList.toggle("edit");
+        event.target.parentNode.childNodes[2].classListt.oggle("edit");
+    }
+    clearCont(){ // method for clear container
+        while (this.tipContainer.firstChild) { 
+            this.tipContainer.removeChild(this.tipContainer.firstChild); 
+        }
+    }
+    progressUpdate() {
+        all.innerHTML = bdToDoList.countAllItem;
+        done.innerHTML = bdToDoList.countDoneItem;
+        barwidth.style.width = `${done.innerHTML * 100 /  all.innerHTML}%`
+        console.log(barwidth.style.width);
+        
     }
 }
 
 // define of Div container
 const tipContainer = document.querySelector(`.tipContainer`);
 interfaceToDo = new InterfaceToDo(tipContainer); // create interface and start
-
 interfaceToDo.loadNotesToDocument(bdToDoList); // load notes
+
 
 
 

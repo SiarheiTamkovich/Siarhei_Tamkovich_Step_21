@@ -48,6 +48,11 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
+    transition: 0.8s;
+}
+
+.input-button:hover {
+    transform: scale(1.1);
 }
 
 .tip-item {
@@ -74,7 +79,9 @@
     font-size: 20px;
     color: rgb(72, 156, 193);
     border: none;
+    text-transform: capitalize;
 }
+
 
 .item-btn_edit {
     width: 30px;
@@ -83,6 +90,12 @@
     border: none;
     color: rgb(72, 156, 193);
     cursor: pointer;
+    font-size: 20px;
+    transition: 1s;
+}
+
+.item-btn_edit:hover {
+    transform: scale(1.5);
 }
 
 .item-btn_delete {
@@ -92,6 +105,11 @@
     border: none;
     color: rgb(72, 156, 193);
     cursor: pointer;
+    transition: 1s;
+}
+
+.item-btn_delete:hover {
+    transform: scale(1.5);
 }
 
 .futter {
@@ -103,15 +121,36 @@
     border-bottom: 1px solid rgb(221, 239, 249);
     border-top: 1px solid rgb(221, 239, 249);
     margin: 5px 0 5px 0;
-
 }
 
 .progress-bar {
-    width: 200px;
+    width: 270px;
     height: 28px;
-    background-size: 40%;
-    background-color: rgb(254, 234, 73) ;
+    position: relative;
 }
+
+.progress-bar_bg {
+    left: 0;
+    height: 28px;
+    background-color: rgb(254, 234, 73) ;
+    position: absolute;
+    transition: 0.8s;
+    z-index: 1;
+}
+
+.progress-bar_text {
+    left: 30px;
+    padding: 5px 0 5px 20px;
+    position: absolute;
+    z-index: 10;
+    color:  rgb(131, 123, 90);
+}
+
+.bar-done,
+.bar-all {
+    font-weight: bolder;
+}
+
 
 .remove-cheked {
     width: 160px;
@@ -119,8 +158,14 @@
     background-color: rgb(72, 156, 193);
     color: rgb(252, 252, 252);
     border: none;
+    border-radius: 1px;
     font-size: 14px;
     cursor: pointer;
+    transition: 0.8s;
+}
+
+.remove-cheked:hover {
+    transform: scale(1.05);
 }
 
 .crossed {
