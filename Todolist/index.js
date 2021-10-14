@@ -65,8 +65,8 @@ class InterfaceToDo {
                 tip.className = `tip-item`;
                 tip.id = `tip${i}`
                 tip.innerHTML = `<input class="item-check" type="checkbox" id="ch${i}" onclick="interfaceToDo.checkItem()" ${bdToDoList.bdTips[i].isChecked}>
-                <input class="tip-item_text" type="text" value="${bdToDoList.bdTips[i].text}" readonly id="txt${i}" onkeypress="saveEditText()">
-                <button class="item-btn_edit" id="btnedit${i}" onclick="interfaceToDo.editItem()">&#9997;</button>
+                <input class="tip-item_text" type="text" value="${bdToDoList.bdTips[i].text}" readonly id="txt${i}">
+                <button class="item-btn_edit" id="btnedit${i}" onclick="interfaceToDo.editItem()">✍</button>
                 <button class="item-btn_delete" id="btndelete${i}" onclick="interfaceToDo.delateItem()">&#10006;</button>`;
                 if (bdToDoList.bdTips[i].isChecked === `checked`) { // add crossed line to text
                     tip.children[1].classList.toggle(`crossed`);
@@ -95,6 +95,13 @@ class InterfaceToDo {
     editItem() {
         event.target.parentNode.childNodes[2].removeAttribute(`readonly`);
         event.target.parentNode.childNodes[2].classList.toggle("edit");
+            if (event.target.parentNode.childNodes[4].innerHTML === `✓`){
+               event.target.parentNode.childNodes[4].innerHTML = `✍`;
+               return;
+            } else if (event.target.parentNode.childNodes[4].innerHTML === `✍`){
+              event.target.parentNode.childNodes[4].innerHTML = `✓`;
+            return;
+        }
     }
     delateItem() {
         this.clearCont(); // clear
@@ -128,15 +135,13 @@ class InterfaceToDo {
         all.innerHTML = bdToDoList.countAllItem;
         done.innerHTML = bdToDoList.countDoneItem;
         barwidth.style.width = `${done.innerHTML * 100 /  all.innerHTML}%`
-        console.log(barwidth.style.width);
-        
     }
 }
 
 // define of Div container
 const tipContainer = document.querySelector(`.tipContainer`);
-interfaceToDo = new InterfaceToDo(tipContainer); // create interface and start
-interfaceToDo.loadNotesToDocument(bdToDoList); // load notes
+interfaceToDo = new InterfaceToDo(tipContainer); // create interface
+interfaceToDo.loadNotesToDocument(bdToDoList); // load notes and start
 
 
 
