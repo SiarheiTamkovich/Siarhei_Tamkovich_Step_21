@@ -1,0 +1,180 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.conteiner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    width: 640px;
+    background-color: rgb(72, 156, 193);
+    display: flex;
+    justify-content: center;
+}
+
+.list {
+    width: 500px;
+    margin: 25px 0px;
+    background-color: rgb(252, 252, 252);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.enter-input {
+    width: 380px;
+    height: 43px;
+    margin-bottom: 8px;
+    border: 2px solid rgb(162, 152, 116);
+    font-size: 22px;
+    font-family: Arial, Helvetica ;
+    border-radius: 2px;
+    color:  rgb(72, 156, 193);
+    font-style: italic;
+    text-align: center;
+
+}
+
+.input-button {
+    width: 47px;
+    height: 43px;
+    background-color: rgb(72, 156, 193);
+    color: rgb(252, 252, 252);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.input-button:hover {
+    transform: scale(1.1);
+}
+
+.tip-item {
+    width: 440px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(202, 200, 200);
+    border-top: 1px solid rgb(202, 200, 200); ;
+}
+
+.item-check {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: 2px solid rgb(140, 144, 147);
+}
+
+.tip-item_text {
+    box-sizing: border-box;
+    width: 370px;
+    height: 34px;
+    padding: 4px 10px;
+    font-size: 20px;
+    color: rgb(72, 156, 193);
+    border: none;
+    text-transform: capitalize;
+}
+
+
+.item-btn_edit {
+    width: 30px;
+    height: 33px;
+    background: none;
+    border: none;
+    color: rgb(72, 156, 193);
+    cursor: pointer;
+    font-size: 20px;
+    transition: 1s;
+}
+
+.item-btn_edit:hover {
+    transform: scale(1.5);
+}
+
+.item-btn_delete {
+    width: 30px;
+    height: 33px;
+    background: none;
+    border: none;
+    color: rgb(72, 156, 193);
+    cursor: pointer;
+    transition: 1s;
+}
+
+.item-btn_delete:hover {
+    transform: scale(1.5);
+}
+
+.futter {
+    width: 440px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(221, 239, 249);
+    border-top: 1px solid rgb(221, 239, 249);
+    margin: 5px 0 5px 0;
+}
+
+.progress-bar {
+    width: 270px;
+    height: 28px;
+    position: relative;
+}
+
+.progress-bar_bg {
+    left: 0;
+    height: 28px;
+    background-color: rgb(254, 234, 73) ;
+    position: absolute;
+    transition: 0.8s;
+    z-index: 1;
+}
+
+.progress-bar_text {
+    left: 30px;
+    padding: 5px 0 5px 20px;
+    position: absolute;
+    z-index: 10;
+    color:  rgb(131, 123, 90);
+}
+
+.bar-done,
+.bar-all {
+    font-weight: bolder;
+}
+
+
+.remove-cheked {
+    width: 160px;
+    height: 30px;
+    background-color: rgb(72, 156, 193);
+    color: rgb(252, 252, 252);
+    border: none;
+    border-radius: 1px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.remove-cheked:hover {
+    transform: scale(1.05);
+}
+
+.crossed {
+    text-decoration: line-through;
+}
+
+.edit {
+    border: 2px solid rgb(162, 152, 116);
+    color: rgb(235, 235, 235);
+    color: #000;
+}
+
