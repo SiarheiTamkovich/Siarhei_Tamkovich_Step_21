@@ -8,10 +8,16 @@ async function getWeather() {
   const res = await fetch(url);
   const data = await res.json();
   
-  weatherIcon.className = 'weather-icon owf';
-  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-  temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
-  weatherDescription.textContent = data.weather[0].description;
+  if (data.cod == 200){
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
+    weatherDescription.textContent = data.weather[0].description;
+  } else if (data.cod == 400) {
+    temperature.textContent = `${data.message}`;
+  } else if (data.cod == 404) {
+    temperature.textContent = `${data.message}`;
+  }
 }
 
 function setCity(event) {
