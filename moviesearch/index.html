@@ -8,7 +8,26 @@
   <title>get movie</title>
 </head>
 <body>
-  <div class="movie" contenteditable="true">Фильмы</div>
+  <div class="movie" contenteditable="false">
+    <div class="container">
+      <div class="header">Search:</div>
+      <div class="title">
+          <label for="title">Title:</label>
+          <input id="title" type="search" size="42"/>
+      </div>
+      <div class="type">
+        <label for="type">Type:</label>
+        <select name="type" id="select">
+          <option value="movie">Movie</option>
+          <option value="series">Series</option>
+          <option value="episode">Episode</option>
+        </select>
+      </div>
+      <div class="search">
+          <button class="search" id="search">Search</button>
+      </div>
+    </div>
+  </div>
   
   <script src="script.js"></script>
 </body>
