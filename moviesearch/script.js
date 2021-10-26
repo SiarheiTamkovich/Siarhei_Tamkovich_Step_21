@@ -13,16 +13,13 @@ async function getMovie() {
  
   if (data.Response === `True`) {
     setLocalStorage(data);
-    console.log(data.Response)
     complete.innerText = `Найдено: ${data.totalResults} записей`;
     film.innerHTML = ``;
     loadMovieToDom(data)
   } else if (data.Response === 'False'){
     complete.innerText = `Ошибка: ${data.Error}`;
     film.innerHTML = ``;
-    console.log(data)
   }
-  
 }
 
 function setLocalStorage(data) {
@@ -42,26 +39,39 @@ window.addEventListener('load', getLocalStorage);
 loadMovieToDom(objMovie);
 
 function loadMovieToDom(data) {
-
   for (let i = 0; i < data.Search.length; i++) {
     let newDiv = document.createElement("div");
-        newDiv.classList.toggle(`film_item`)
-        newDiv.id = data.Search[i].imdbID;
-        newDiv.innerHTML = `
-        <p class="item_type"> ${data.Search[i].Type}</p>
-        <h2 class="item_title">${data.Search[i].Title}</h2>
-        <h3 class="item_year">${data.Search[i].Year}</h3>
-        <div class="item_poster"><img src="${data.Search[i].Poster}" class="poster_pict"></div>
-        <button class="item_btn" onclick="openText()">Details</button`;
-        film.appendChild(newDiv);
+    newDiv.classList.toggle(`film_item`);
+    newDiv.id = data.Search[i].imdbID;
+    // insert HTML:  insertAdjacentHTML 'beforebegin' 'afterbegin' 'beforeend' 'afterend'
+    newDiv.insertAdjacentHTML('afterbegin',
+    ` <p class="item_type"> ${data.Search[i].Type}</p>
+      <h2 class="item_title">${data.Search[i].Title}</h2>
+      <h3 class="item_year">${data.Search[i].Year}</h3>
+      <div class="item_poster"><img src="${data.Search[i].Poster}" class="poster_pict"></div>
+      <button class="item_btn" onclick="getAbout()">Details</button
+    `);
+    film.appendChild(newDiv);
   } 
 }
 
-function openText() {
-  console.log(event.target.parentNode.id)
-  event.target.parentNode.innerHTML = `
-  <frame class="frame">rrtytyyty</frame>
-  <button class="frame_btn" onclick="closeframe()">Return</button> `;
+async function getAbout() {
+  const elem = event.target.parentNode;
+  const id = event.target.parentNode.id;
+  const url = `http://www.omdbapi.com/?i=${id}&plot=short&apikey=6cb20a41`
+  const res = await fetch(url);
+  const data = await res.json();
+  
+  let previosHTML =  elem.innerHTML;
+  elem.innerHTML = `
+  <div class="frame">${data.Actors}</div>
+  <button class="frame_btn" id="elem" >Return</button> `
+  
+  elem.onclick = function() {
+    elem.innerHTML = previosHTML;
+  } 
+}
+
+
   
 
-}
