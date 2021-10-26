@@ -78,7 +78,6 @@
 .item_title {
   grid-column: 2;
   grid-row: 2;
-  margin: 0;
 }
 
 .item_year {
