@@ -58,6 +58,7 @@
 
 .film {
   display: flex;
+  overflow: auto;
 }
 
 .film_item {
@@ -110,10 +111,10 @@
   cursor: pointer;
 }
 
-.frame {
-  display: block;
-  grid-column: 1/2;
-  grid-row: 1/4;
+.info {
+  grid-column: 1 / 3;
+  grid-row: 1 / 5;
+  padding: 5px;
 }
 
 .frame_btn {
