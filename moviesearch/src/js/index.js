@@ -1,11 +1,11 @@
 const movie = document.querySelector('.movie');
 const film = document.querySelector(`.film`);
-let objMovie = getLocalStorage();
 
-//console.log(objMovie.Response)
+let objMovie = getLocalStorage();
 
 async function getMovie(page) {
   complete.innerText = `Loading...`
+  search = searchtxt.value;
   const url = `http://www.omdbapi.com/?s=${searchtxt.value}*&plot=full&page=${page}&type=${select.value}&apikey=6cb20a41`;
   const res = await fetch(url);
   const data = await res.json();
@@ -42,6 +42,7 @@ function loadMovieToDom(data) {
     let newDiv = document.createElement("div");
     newDiv.classList.toggle(`film_item`);
     newDiv.id = data.Search[i].imdbID;
+        
     // insert HTML:  insertAdjacentHTML 'beforebegin' 'afterbegin' 'beforeend' 'afterend'
     newDiv.insertAdjacentHTML('afterbegin',
     ` <p class="item_type"> ${data.Search[i].Type}</p>
@@ -50,6 +51,7 @@ function loadMovieToDom(data) {
       <div class="item_poster"><img src="${data.Search[i].Poster}" class="poster_pict"></div>
       <button class="item_btn" onclick="getAbout()">Details</button
     `);
+    newDiv.setAttribute(`data-inner`, newDiv.innerHTML);  // save innerHTML to attribute
     film.appendChild(newDiv);
     complete.innerText = `Total: ${data.totalResults} records`;
   } 
@@ -62,7 +64,6 @@ async function getAbout() {
   const res = await fetch(url);
   const data = await res.json();
   
-  let previousHTML = elem.innerHTML;
   elem.innerHTML = `
   <div class="info">
     <h4>Title:</h4>
@@ -76,11 +77,13 @@ async function getAbout() {
       <h4>Plot:</h4>
       <p> &emsp; ${data.Plot}</p>
   </div>
-  <button class="frame_btn" id="btnreturn" >Return</button> `;
+  <button class="frame_btn" onclick="returnInner()" >Return</button> `;
   
-  btnreturn.onclick = function() {
-    elem.innerHTML = previousHTML;
-  } 
+}
+
+function returnInner() {
+  const elem = event.target.parentNode;
+  elem.innerHTML = elem.dataset.inner; //  get data from date- attribute https://developer.mozilla.org/ru/docs/Learn/HTML/Howto/Use_data_attributes
 }
 
 
