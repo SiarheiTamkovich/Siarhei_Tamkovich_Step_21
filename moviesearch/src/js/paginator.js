@@ -9,10 +9,6 @@ function addButtons(page, total) {
 
 addButtons(counter.page, counter.total);
 
-function listLeft(){
-    
-}
-
 function listRight(){
     counter.page++;
     listpage.innerHTML = `&emsp; page ${counter.page} from ${counter.total} &emsp;`;
