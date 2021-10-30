@@ -1,11 +1,18 @@
 const movie = document.querySelector('.movie');
 const film = document.querySelector(`.film`);
-
+const divPaginator = document.querySelector(`.paginator`)
+let counter = {};
 let objMovie = getLocalStorage();
+counter = {
+  page: 1,
+  total: Math.ceil(objMovie.totalResults / 10),
+  searchingText: ``,
+}
 
 async function getMovie(page) {
   complete.innerText = `Loading...`
   search = searchtxt.value;
+  counter.searchingText = searchtxt.value;
   const url = `http://www.omdbapi.com/?s=${searchtxt.value}*&plot=full&page=${page}&type=${select.value}&apikey=6cb20a41`;
   const res = await fetch(url);
   const data = await res.json();
@@ -14,16 +21,26 @@ async function getMovie(page) {
     setLocalStorage(data);
     complete.innerText = `Found: ${data.totalResults} records`;
     film.innerHTML = ``;
-    loadMovieToDom(data)
+    loadMovieToDom(data);
+  
+    divPaginator.innerHTML = ``;
+
+    counter.total = Math.ceil(data.totalResults / 10),
+    addButtons(counter.page, Math.ceil(counter.total));
+
   } else if (data.Response === 'False'){
     complete.innerText = `Error: ${data.Error}`;
     film.innerHTML = ``;
+    divPaginator.innerHTML = ``;
   }
 }
 
 function setLocalStorage(data) {
   let strMovie = JSON.stringify(data);
   localStorage.setItem('strMovie', strMovie);
+
+  localStorage.setItem('counter', JSON.stringify(counter));
+  counter = JSON.parse(localStorage.getItem("counter"));
 }
 
 function getLocalStorage() {
