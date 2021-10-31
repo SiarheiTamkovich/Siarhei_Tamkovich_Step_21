@@ -1,0 +1,37 @@
+{
+  "name": "siarhei_tamkovich_step_21",
+  "version": "1.0.0",
+  "description": "my firs package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/webpack --progress",
+    "start": "node_modules/.bin/webpack-dev-sever"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiarheiTamkovich/Siarhei_Tamkovich_Step_21.git"
+  },
+  "author": "Siarhei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiarheiTamkovich/Siarhei_Tamkovich_Step_21/issues"
+  },
+  "homepage": "https://github.com/SiarheiTamkovich/Siarhei_Tamkovich_Step_21#readme",
+  "devDependencies": {
+    "html-loader": "^3.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^6.0.1",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "sass-resources": "^1.0.3",
+    "sass-resources-loader": "^2.2.4",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  },
+  "dependencies": {
+    "css-loader": "^6.5.0"
+  }
+}
