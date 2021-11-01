@@ -11,19 +11,19 @@ addButtons(counter.page, counter.total);
 
 function listRight(){
     counter.page++;
-    listpage.innerHTML = `&emsp; page ${counter.page} from ${counter.total} &emsp;`;
- //   console.log(counter.total)
+    if (counter.page === counter.total + 1) counter.page = 1;
+    listpage.innerHTML = `&emsp; page ${counter.page} from ${counter.total} &emsp;`; 
+  //  console.log(counter.page)
     counterUrl = JSON.parse(localStorage.getItem("counter"));
     searchtxt.value = counterUrl.searchingText;
     getMovie(counter.page)
-    if (counter.page === counter.total) counter.page = 1;
 }
 
 function listLeft(){
     counter.page--;
-    if (counter.page === 0) counter.page = 1;
+    if (counter.page === 0) counter.page = counter.total;
     listpage.innerHTML = `&emsp; page ${counter.page} from ${counter.total} &emsp;`;
- //   console.log(counter.total)
+  //  console.log(counter.page)
     counterUrl = JSON.parse(localStorage.getItem("counter"));
     searchtxt.value = counterUrl.searchingText;
     getMovie(counter.page) 
