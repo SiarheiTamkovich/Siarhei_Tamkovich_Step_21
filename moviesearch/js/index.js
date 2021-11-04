@@ -13,7 +13,7 @@ async function getMovie(page) {
   complete.innerText = `Loading...`
   search = searchtxt.value;
   counter.searchingText = searchtxt.value;
-  const url = `http://www.omdbapi.com/?s=${searchtxt.value}*&plot=full&page=${page}&type=${select.value}&apikey=6cb20a41`;
+  const url = `https://www.omdbapi.com/?s=${searchtxt.value}*&plot=full&page=${page}&type=${select.value}&apikey=6cb20a41`;
   const res = await fetch(url);
   const data = await res.json();
  
