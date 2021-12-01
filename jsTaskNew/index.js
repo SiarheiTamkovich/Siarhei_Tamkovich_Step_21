@@ -31,24 +31,27 @@
 //integer.
 
 function sumDigits(n){
-  let sum = 0;
-  let i = 1;
-  while (i <= n){
-//  console.log(`n=`+ n + ` i=` + i + ` --` + sum)
-    sum += i;
-    i++;
-    if (sum >= 10) {
-      n--;
-      i = 1;
-      sum = 0;
-    }
+  n = String(n).split(``)
+  console.log(sumArr(n))
+  if (sumArr(n) > 9) {
+    n.splice(0, 1);
+    m = n.join(``)
+    console.log(m)
+    sumDigits(m);
+  } else {
+    return;
   }
-  console.log(sum)
 }
 
-sumDigits(3)
-sumDigits(4)
-sumDigits(5)
+function sumArr(arr){
+  let sum = 0;
+  arr.forEach(element => {
+    sum +=Number(element)
+  });
+  return sum;
+}
 
-//Task 2 Another solution
+sumDigits(1234589);
+
+
 
