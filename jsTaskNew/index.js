@@ -5,16 +5,14 @@
 
 function calcSum(prop) {
   let sum = 0;
-  if (prop <= 0) {
-    console.log(`the number is negative or = 0`)
-  } else { 
-    for (let i = 1; i <= prop; i++){
+  if (prop => 0) {
+      for (let i = 1; i <= prop; i++){
       if (i % 3 === 0 || i % 5 === 0) {
         sum += i;
       }
     }
-    console.log(`the number ${prop} sum of all the multiples of 3 or 5 = ${sum}`)
   }
+  console.log(`the number ${prop} sum of all the multiples of 3 or 5 = ${sum}`)
 }
 
 calcSum(0);
@@ -38,17 +36,11 @@ function sumDigits(n){
     m = n.join(``)
     console.log(m)
     sumDigits(m);
-  } else {
-    return;
   }
 }
 
 function sumArr(arr){
-  let sum = 0;
-  arr.forEach(element => {
-    sum +=Number(element)
-  });
-  return sum;
+  return arr.reduce((a, b) => a + b); 
 }
 
 sumDigits(1234589);
