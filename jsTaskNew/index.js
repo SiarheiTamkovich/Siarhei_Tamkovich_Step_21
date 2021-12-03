@@ -29,11 +29,11 @@ calcSum(21);
 //integer.
 
 function sumDigits(n){
-  n = String(n).split(``)
+  n = String(n).split(``) //
   console.log(sumArr(n))
   if (sumArr(n) > 9) {
     n.splice(0, 1);
-    m = n.join(``)
+    let m = n.join(``)
     console.log(m)
     sumDigits(m);
   }
