@@ -23,27 +23,36 @@ calcSum(9);
 calcSum(21);
 
 //Task 2
-//Given n, return the sum of its digits. If the resulting value is 
-//more than one digit long, continue reducing it this way until 
-//you get a single-digit result. The input will always be a non-negative 
-//integer.
+// Given n, return the sum of its digits. If the resulting value is 
+// more than one digit long, continue reducing it this way until 
+// you get a single-digit result. The input will always be a non-negative 
+// integer.
+
+// function sumDigits(n){
+//   n = String(n).split(``) //
+//   console.log(sumArr(n))
+//   if (sumArr(n) > 9) {
+//     n.splice(0, 1);
+//     let m = n.join(``)
+//     console.log(m)
+//     sumDigits(m);
+//   }
+// }
+
+// function sumArr(arr){
+//   return arr.reduce((a, b) => a + b); 
+// }
 
 function sumDigits(n){
-  n = String(n).split(``) //
-  console.log(sumArr(n))
-  if (sumArr(n) > 9) {
-    n.splice(0, 1);
-    let m = n.join(``)
-    console.log(m)
-    sumDigits(m);
-  }
+  let singleDigit = String(n).split(``).reduce((a, b) => Number(a) + Number(b));
+  if (singleDigit > 9) {
+    return sumDigits(String(n).substr(1));
+  } 
+  console.log(singleDigit)
 }
+sumDigits(5678);
 
-function sumArr(arr){
-  return arr.reduce((a, b) => a + b); 
+function sumD(n) {
+  return n % 9 || 9;
 }
-
-sumDigits(1234589);
-
-
-
+console.log(sumD(5678))
