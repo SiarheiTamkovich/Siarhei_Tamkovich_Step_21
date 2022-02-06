@@ -14,30 +14,51 @@
 //   return ((eval(pocketStr.replace(/ |бун|коп/g, '')))/100).toFixed(2).replace(/\./, 'бун ') + 'коп';
 // }
 
+        // 40 баллов
 // solution = function (pocketStr) { 
-//   let str = pocketStr.replace(/ /g, '');
+//   let result = "";
+//   let expression = pocketStr.replace(/ |бун|коп/g, "");
+//   let summa = eval(expression);
+//   let bun = Math.trunc( summa / 100);
+//   let cop = Number(summa % 100);
+//   result = bun + "бун " + cop + "коп";
+//   return result;
+// }
+
+// solution = function (pocketStr) { 
+//   let result = "";
+//   let expression = pocketStr.replace(/ |бун|коп/g, "");
+//   let summa = eval(expression);
+//   let bun = Math.trunc( summa / 100);
+//   let cop = Number(summa % 100);
+//   result = bun + "бун " + cop + "коп";
+//   return result;
+// }
+
+// solution = function (pocketStr) { 
+//   let str = pocketStr.replace(/ /g, "");
 //  // let arrSigns = result.replace(/[a-zа-яё0-9]/g, '').split('');
-//   let arrNum =  str.replace(/[a-zа-яё]/g, '').split('+');
-//   let sumArr = arrNum.reduce((a,b) => Number(a) + Number(b), 0);
-//   sumArr = (sumArr/100).toFixed(2).replace(/\./, 'бун ') + 'коп';
+//   let arrNum =  str.replace(/[a-zа-яё]/g, "").split("+");
+//   let sumArr = arrNum.reduce((a, b) => Number(a) + Number(b), 0);
+//   sumArr = (sumArr/100).toFixed(2).replace(/\./, "бун ") + "коп";
 //   return sumArr;
 // }
 
-// console.log(solution('5бун 35коп + 4бун 65коп'))
-// console.log(solution('5бун 35коп + 4бун 64коп'))
-// console.log(solution('5бун 35коп + 3бун 65коп'))
-// console.log(solution('15бун 25коп + 30бун 65коп'))
-// console.log(solution('15бун 25коп + 30бун 63коп'))
-// console.log(solution('5бун 31коп + 4бун 65коп'))
-// console.log(solution('5бун 29коп + 4бун 65коп'))
-// console.log(solution('5бу 25кп + 4ун 65ко'))
+console.log(solution('5бун 35коп + 4бун 65коп'))   // 10бун 0коп
+console.log(solution('5бун 35коп + 4бун 64коп'))   // 9бун 99коп
+console.log(solution('5бун 35коп + 3бун 65коп'))   // 9бун 00коп
+console.log(solution('15бун 25коп + 30бун 65коп')) // 45бун 90коп
+console.log(solution('15бун 25коп + 30бун 63коп')) // 45бун 88коп
+console.log(solution('5бун 31коп + 4бун 65коп'))   // 9бун 96коп
+console.log(solution('5бун 29коп + 4бун 65коп'))   // 9бун 94коп
+console.log(solution('5бу 25кп + 4ун 65ко'))
 
-// console.log(solution('5бун 29коп - 4бун 65коп'))
-// console.log(solution('5бун 35коп + 4бун 65коп + 14бун 25коп'))
-// //console.log(solution('5бун 35коп + 4бун 65коп - 3бун 25коп'))
-// console.log(solution('5бун 35коп'))
-// console.log(solution('0бун 0коп'))
-// console.log(solution('0бун 0коп + 0бун 0коп'))
+console.log(solution('5бун 29коп - 4бун 65коп'))
+console.log(solution('5бун 35коп + 4бун 65коп + 14бун 25коп'))
+console.log(solution('5бун 35коп + 4бун 65коп - 3бун 25коп'))
+console.log(solution('5бун 35коп'))
+console.log(solution('0бун 0коп'))
+console.log(solution('0бун 0коп + 0бун 0коп'))
 
 //Task 2
 //Зодиак
@@ -53,40 +74,71 @@
 // ВНИМАНИЕ: Функция решения должна быть присвоена строго глобальной переменной solution, в 
 // противном случае решение не сможет быть проверено!
 
-solution = function (dateStr) {
-  let result = '';
-  let birth = {dateZ: Number(dateStr.slice(3, 5) + dateStr.slice(0, 2))}
-  tablZod.forEach(element => {
-    birth.dateZ >= element.zs && birth.dateZ <= element.ze ?
-      result = element.name : null;
-  })
-  return result;
-};
+// solution = function (dateStr) {
+//   let result = "";
+//   let birth = {dateZ: Number(dateStr.slice(3, 5) + dateStr.slice(0, 2))};
+//   tablZod.forEach(element => {
+//     birth.dateZ >= element.zs && birth.dateZ <= element.ze ?
+//       result = element.name : null;
+//   });
+//   return result;
+// };
 
-const tablZod = [
-  {name:'Козерог', zs:  11,  ze:  120},
-  {name:'Водолей', zs:  121, ze:  219},                                                              
-  {name:'Рыбы',    zs:  220, ze:  320},
-  {name:'Овен',    zs:  321, ze:  420},
-  {name:'Телец',   zs:  421, ze:  521},
-  {name:'Близнецы',zs:  522, ze:  621},
-  {name:'Рак',     zs:  622, ze:  722},
-  {name:'Лев',     zs:  723, ze:  821},
-  {name:'Дева',    zs:  822, ze:  923},
-  {name:'Весы',    zs:  924, ze: 1023},
-  {name:'Скорпион',zs: 1024, ze: 1122},
-  {name:'Стрелец', zs: 1123, ze: 1222},
-  {name:'Козерог', zs: 1223, ze: 1231}
-];
+// const tablZod = [
+//   {name: "Козерог",  zs:  11,  ze:  120},
+//   {name: "Водолей",  zs:  121, ze:  219},                                                              
+//   {name: "Рыбы",     zs:  220, ze:  320},
+//   {name: "Овен",     zs:  321, ze:  420},
+//   {name: "Телец",    zs:  421, ze:  521},
+//   {name: "Близнецы", zs:  522, ze:  621},
+//   {name: "Рак",      zs:  622, ze:  722},
+//   {name: "Лев",      zs:  723, ze:  821},
+//   {name: "Дева",     zs:  822, ze:  923},
+//   {name: "Весы",     zs:  924, ze: 1023},
+//   {name: "Скорпион", zs: 1024, ze: 1122},
+//   {name: "Стрелец",  zs: 1123, ze: 1222},
+//   {name: "Козерог",  zs: 1223, ze: 1231}
+// ];
 
-console.log(solution('23/03'))
-console.log(solution('07/02'))
-console.log(solution('24/12'))
-console.log(solution('19/01'))
-console.log(solution('27/12'))
-console.log(solution('30/12'))
-console.log(solution('06/06'))
+// console.log(solution('23/03'))
+// console.log(solution('07/02'))
+// console.log(solution('24/12'))
+// console.log(solution('19/01'))
+// console.log(solution('27/12'))
+// console.log(solution('30/12'))
+// console.log(solution('06/06'))
+// console.log(solution('02/02'))
+// console.log(solution('29/11'))
+// console.log(solution('25/10'))
 
+// 40 баллов 
+// solution = function (dateStr) {
+//   let result = '';
+//  let birth = {
+//    m: Number(dateStr.slice(3, 5)),
+//    d: Number(dateStr.slice(0, 2))
+//  }
+//  tablZod.forEach(element => {
+//    if (birth.m === element.ms) result = element.name;
+// })
+//  return result;
+// };
+
+// const tablZod = [
+//  {name:'Козерог', ms:  1, ds:  1, me:  1, de: 20},
+//  {name:'Водолей', ms:  1, ds: 21, me:  2, de: 19},
+//  {name:'Рыбы',    ms:  2, ds: 20, me:  3, de: 20},
+//  {name:'Овен',    ms:  3, ds: 21, me:  4, de: 20},
+//  {name:'Телец',   ms:  4, ds: 21, me:  5, de: 21},
+//  {name:'Близнецы',ms:  5, ds: 22, me:  6, de: 21},
+//  {name:'Рак',     ms:  6, ds: 22, me:  7, de: 22},
+//  {name:'Лев',     ms:  7, ds: 23, me:  8, de: 21},
+//  {name:'Дева',    ms:  8, ds: 22, me:  9, de: 23},
+//  {name:'Весы',    ms:  9, ds: 24, me: 10, de: 23},
+//  {name:'Скорпион',ms: 10, ds: 24, me: 11, de: 22},
+//  {name:'Стрелец', ms: 11, ds: 23, me: 12, de: 22},
+//  {name:'Козерог', ms: 12, ds: 23, me: 12, de: 31}
+//  ];
 
 
 //Task 3 
@@ -157,28 +209,56 @@ console.log(solution('06/06'))
 // туда нада самому 2 параметра вписать
 
 // solution = function (strCharA, strCharB) {
+//   let result = "";
 //   //return String(Number(Number(strCharA).toFixed()) + Number(Number(strCharB).toFixed()))
-  
-//    // if(Number(strCharA) - parseInt(strCharA, 10)) strCharA = 0;
+//   // if(Number(strCharA) - parseInt(strCharA, 10)) strCharA = 0;
 //   // if(Number(strCharB) - parseInt(strCharB, 10)) strCharB = 0;
-//   if (strCharA.slice(0, 2) === '0x') strCharA = parseInt(strCharA, 16).toString();
-//   if (strCharB.slice(0, 2) === '0x') strCharB = parseInt(strCharB, 16).toString();
-//   if (strCharA.slice(0, 2) === '0o') strCharA = Number(strCharA).toString();
-//   if (strCharB.slice(0, 2) === '0o') strCharB = Number(strCharB).toString();
-//   //return (Number(strCharA) + Number(strCharB)).toString();
-//   return (parseInt(strCharA, 10) + parseInt(strCharB, 10)).toString()
+//   if (strCharA.slice(0, 2) === "0x") strCharA = parseInt(strCharA, 16).toString();
+//   if (strCharB.slice(0, 2) === "0x") strCharB = parseInt(strCharB, 16).toString();
+//   if (strCharA.slice(0, 2) === "0o") strCharA = Number(strCharA).toString();
+//   if (strCharB.slice(0, 2) === "0o") strCharB = Number(strCharB).toString();
+//   //return result = (Number(strCharA) + Number(strCharB)).toString();
+//   //return result = (parseInt(strCharA, 10) + parseInt(strCharB, 10)).toString()
+//   //result = (parseInt(strCharA, 10) + parseInt(strCharB, 10)).toFixed(10)
+
+//   if (Number(strCharA) > Number.MAX_SAFE_INTEGER || Number(strCharB) > Number.MAX_SAFE_INTEGER) {
+//     let a = [...strCharA].reverse()
+//     let b = [...strCharB].reverse()
+  
+//     for (let i = 0; i < b.length; ++i) {
+//       if ((a[i] = ~~a[i] + ~~b[i]) > 9) {
+//         a[i] -= 10;
+//         b[i + 1] = ~~b[i + 1] + 1
+//       }
+//     }
+//     return result = a.reverse().join("")
+//   }
+//   return result = (parseInt(strCharA, 10) + parseInt(strCharB, 10)).toPrecision(40).split(".")[0]
+
+// // let flag = 0;
+// // while (a.length||b.length||flag){
+// //   flag += ~~a.pop() + ~~b.pop();
+// //   result = flag %10 + result;
+// //   flag = flag > 9;
+// // }
+// //   return result.replace(/^0+/, '');
+
 // };
 
-// console.log(solution('99', '1'))
-// console.log(solution('99.12', '1'))
-// console.log(solution('99', '-1'))
-// console.log(solution('99', '0'))
-// console.log(solution('9aa', '3cc'))
-// console.log(solution('0xff', '0'))
-// console.log(solution('0xff', '0xff'))
-// console.log(solution('0o70', '0'))
-// console.log(solution('0o70', '0o70'))
-
+// console.log(solution('99', '1'))      // 100
+// console.log(solution('99.12', '1'))   // 100
+// console.log(solution('99', '-1'))     // 98
+// console.log(solution('99', '0'))      // 99
+// console.log(solution('9aa', '3cc'))   // 12
+// console.log(solution('0xff', '0'))    // 255
+// console.log(solution('0xff', '0xff')) // 510
+// console.log(solution('0o70', '0'))    // 56
+// console.log(solution('0o70', '0o70')) // 112
+// console.log(solution('90071992547409939007199254740992', '1')) //90071992547409939007199254740993
+// console.log(solution('90071992547409939007199254740992', '2')) //90071992547409939007199254740994
+// console.log(solution('90071992547409939007199254740992', 
+//                             '2547409939007199254740981'))      //90071995094819878014398509481973
+// console.log(Number.MAX_SAFE_INTEGER)
 
 // Task 6
 // Сумма из одного числа
@@ -221,15 +301,25 @@ console.log(solution('06/06'))
 //   let summArr = 0;
 //   let arrLength = arr.length
 //   arr.forEach(element => {
-//     typeof(element) === 'number' && Number.isInteger(element) ? summArr +=element : arrLength--;
+//     typeof(element) === "number" && Number.isInteger(element) ? summArr +=element : arrLength--;
 //   });
 // //  console.log(summArr / arrLength)
 //   return Number.isInteger(summArr / arrLength);
 // };
 
-// console.log(solution([1,2,3]))
-// console.log(solution([1,5,7])) 
-// console.log(solution([1,5.4,5]))
+// console.log(solution([1,3]))
+// console.log(solution([1,2,3,4])) 
+// console.log(solution([1,5.5,6]))
+// console.log(solution([1,1,1]))
+// console.log(solution([9,2,"2",5]))
 // console.log(solution([1,2,3.05]))
 // console.log(solution([1,2,'none']))
 // console.log(solution([1,2,3,'none']))
+// 7 задача совсем забагалась, может быть такое что вы сделали, но 0 баллов, 
+// поэтому главное проверьте чтобы ваше решение которое вы опублиовали работала по таким примерам
+// [{"input":[1,3],"output":true},
+//{"input":[1,2,3,4],"output":false},
+//{"input":[1,5.5,6],"output":false},
+//{"input":[1,1,1],"output":true},
+//{"input":[9,2,"2",5],"output":false}]
+// опять же, все будет пересмотренно перед собесом
